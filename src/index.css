@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: InterVariable, sans-serif;
+
+    --color-black-10-percent: rgba(0,0,0,0.1); /* Gray for borders */
+    --color-blue-29a8f1: #29A8F1; /* Primary */
+    --color-blue-primary: #0E90DA; /* Primary */
+    --color-blue-0e90da: #0E90DA; /* For hover, footer */
+    --color-blue-001b2a: #001B2A; /* Primary, for dark text */
+    --color-dark-text-primary: #001B2A; /* Primary, for dark text */
+    --color-dark-primary: #001B2A; /* Primary, for dark text */
+    --color-gray-757575: #757575; /* For gray text */
+    --color-gray-d9d9d9: #D9D9D9; /* For btn bg */
+    --color-gray-303a4d: #303A4D; /* Darker than #757575, same with #333333 */
+
+    --color-gray-e4e4e4: #E4E4E4;
+    --color-gray-e5e5e5: #E5E5E5; /* Lighter than #757575, for grayed out text, borders, etc */
+    --color-gray-dbdbdb: #DBDBDB;
+    --color-gray-b4b4b4: #B4B4B4; /* Lighter than #757575, for contact form placeholder, etc */
+    --color-gray-0d0d0d: #0D0D0D; /* Close to black, remove */
+    --color-gray-f1f1f1: #F1F1F1;
+    --color-yellow-ffe26f: #FFE26F;
+    --color-white-f8fdff: #F8FDFF;
+    --color-off-white: #F8FDFF;
+
+    --color-green-008c38: #008C38;
+    --color-green-00B5484F: #00B5484F;
+    --color-red-ca0000: #CA0000; /* For delete button, etc */
+    --color-red-ca00001f: #CA00001F; /* Background for #CA0000 */
+
+    --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+/* GENERAL */
+.section-px { @apply px-4 md:px-6 lg:px-10; }
+.section-mt { @apply mt-10 sm:mt-14 md:mt-20 lg:mt-24; }
