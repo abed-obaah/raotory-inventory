@@ -45,6 +45,7 @@ import SalesHistory from "./SalesHistory";
 import CreateCustomer from "./CreateCustomer";
 import SettingsGeneral from "./SettingsGeneral";
 import SettingsUsers from "./SettingsUsers";
+import SettingsRole from "./SettingsRole";
 
 const userNavigation = [
   { name: "Store Name 01", href: "#" },
@@ -63,7 +64,7 @@ const components = {
   "Create Customer": () => <div><CreateCustomer /></div>,
   "General": () => <SettingsGeneral />,
   "Users": () => <SettingsUsers />,
-  "Role": () => <div>Role Settings Content</div>,
+  "Role": () => <div><SettingsRole /></div>,
   "Help Center": () => <div>Help Center Content</div>,
 };
 
