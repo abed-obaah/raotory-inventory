@@ -46,6 +46,14 @@ export default function SettingsAddUser({ setView }) {
                         Assign new user to a role
                     </p>
                 </div>
+                {/* Roles */}
+                <div>
+                    {/* Manager */}
+                    <div class="flex items-center gap-2 border border-black-10-percent w-max rounded-[10px] py-3 px-6">
+                        <input id="" type="checkbox" class="size-7.5 text-blue-600 bg-white border border-black-10-percent rounded-[5px] focus:outline-none focus:ring-4 focus:ring-blue-300" />
+                        <label for="" class="flex items-center justify-center bg-[#FFDD55] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">Manager</label>
+                    </div>
+                </div>
             </div>
         </div>
     );
