@@ -1,4 +1,4 @@
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiHelpCircle, FiSend } from "react-icons/fi";
 
 export default function SettingsAddUser({ setView }) {
     return (
@@ -36,7 +36,7 @@ export default function SettingsAddUser({ setView }) {
             </div>
 
             {/* Choose role */}
-            <div>
+            <div className="mb-16">
                 {/* Title */}
                 <div className="mb-7.5">
                     <h1 className="text-2xl text-dark-primary font-semibold mb-1">
@@ -47,7 +47,7 @@ export default function SettingsAddUser({ setView }) {
                     </p>
                 </div>
                 {/* Roles */}
-                <div className="flex gap-10">
+                <div className="flex gap-10 mb-16">
                     {/* Manager */}
                     <div class="flex items-center gap-2 border border-black-10-percent w-max rounded-[10px] py-3 px-6">
                         <input type="checkbox" class="size-7.5 text-blue-600 bg-white border border-black-10-percent rounded-[5px] appearance-none checked:bg-blue-primary checked:border-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-300" />
@@ -70,6 +70,21 @@ export default function SettingsAddUser({ setView }) {
                         </label>
                     </div>
                 </div>
+                {/* Help */}
+                <div className="flex items-center gap-1">
+                    <FiHelpCircle className="size-5" />
+                    <p className="text-base text-dark-primary font-medium">See what each role can access</p>
+                </div>
+            </div>
+
+            {/* Send invite button */}
+            <div>
+                <button
+                    onClick={() => setView("settings-add-user")}
+                    className="bg-blue-500 text-off-white text-base font-semibold px-6 py-4 rounded w-full max-w-[484px] cursor-pointer flex items-center justify-center gap-4"
+                >
+                    <FiSend className="text-2xl text-off-white" /> Send Invite
+                </button>
             </div>
         </div>
     );
