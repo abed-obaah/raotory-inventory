@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SettingsAddUser from "./SettingsAddUser";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 export default function SettingsUsers() {
     const [view, setView] = useState("settings-users");
@@ -13,7 +14,7 @@ export default function SettingsUsers() {
                     {/* Title, search, button */}
                     <div className="flex items-center justify-between mb-14">
                         <div>
-                            <h1 className="text-2xl text-dark-primary font-semibold">
+                            <h1 className="text-2xl text-dark-primary font-semibold mb-1">
                                 User Management
                             </h1>
                             <p className="text-xs text-gray-757575 font-medium">
@@ -49,32 +50,110 @@ export default function SettingsUsers() {
                     <div className="relative overflow-x-auto mb-10">
                         <table className="text-base w-full">
                             <thead className="text-gray-b4b4b4 font-semibold text-left">
-                                <tr className='grid grid-cols-6'>
-                                    <th className="col-span-2 px-2.5 py-3">Customer Name</th>
-                                    <th className="px-2.5 py-3">Sales Type</th>
+                                <tr className='grid grid-cols-4'>
+                                    <th className="px-2.5 py-3">User Name</th>
                                     <th className="px-2.5 py-3">Status</th>
-                                    <th className="px-2.5 py-3">Action</th>
+                                    <th className="px-2.5 py-3">Role</th>
+                                    <th className="px-2.5 py-3">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
-                                    <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
+                                <tr className="grid grid-cols-4 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
+                                    {/* User name */}
+                                    <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         <div className='flex items-center gap-2'>
-                                            <div className='flex justify-center items-center text-white bg-[#8FD7FF] rounded size-7.5'>A</div>
-                                            <p>Amos Pharmacy Ltd</p>
+                                            <div className='flex justify-center items-center text-white bg-[#8FFFA3] rounded size-7.5'>A</div>
+                                            <p>Amos Rukky</p>
                                         </div>
                                     </td>
-                                    <td className="px-2.5 py-2 text-dark-primary font-semibold">
-                                        Wholesale
+                                    {/* Status */}
+                                    <td className="px-2.5 py-2">
+                                        <div className="flex items-center justify-center bg-[#CA00001F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                            Logged Out
+                                        </div>
                                     </td>
+                                    {/* Role */}
+                                    <td className="px-2.5 py-2">
+                                        <div className="flex items-center justify-center bg-[#FFDD55] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                            Manager
+                                        </div>
+                                    </td>
+                                    {/* Action */}
+                                    <td className="px-2.5 py-2">
+                                        <button
+                                            onClick={() => setView("customer-details")}
+                                            className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer mr-4"
+                                        >
+                                            Change Role
+                                        </button>
+                                        <button className="p-2 bg-red-100 rounded-full cursor-pointer">
+                                            <RiDeleteBin6Line className="text-red-600" />
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className="grid grid-cols-4 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
+                                    {/* User name */}
+                                    <td className="px-2.5 py-2 text-dark-primary font-semibold">
+                                        <div className='flex items-center gap-2'>
+                                            <div className='flex justify-center items-center text-white bg-[#8FFFA3] rounded size-7.5'>A</div>
+                                            <p>Amos Rukky</p>
+                                        </div>
+                                    </td>
+                                    {/* Status */}
                                     <td className="px-2.5 py-2">
                                         <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
-                                            Paid
+                                            Active
                                         </div>
                                     </td>
+                                    {/* Role */}
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
-                                            View
+                                        <div className="flex items-center justify-center bg-[#5C6F88] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                            Admin
+                                        </div>
+                                    </td>
+                                    {/* Action */}
+                                    <td className="px-2.5 py-2">
+                                        <button
+                                            onClick={() => setView("customer-details")}
+                                            className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer mr-4"
+                                        >
+                                            Change Role
+                                        </button>
+                                        <button className="p-2 bg-red-100 rounded-full cursor-pointer">
+                                            <RiDeleteBin6Line className="text-red-600" />
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className="grid grid-cols-4 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
+                                    {/* User name */}
+                                    <td className="px-2.5 py-2 text-dark-primary font-semibold">
+                                        <div className='flex items-center gap-2'>
+                                            <div className='flex justify-center items-center text-white bg-[#8FFFA3] rounded size-7.5'>A</div>
+                                            <p>Amos Rukky</p>
+                                        </div>
+                                    </td>
+                                    {/* Status */}
+                                    <td className="px-2.5 py-2">
+                                        <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                            Active
+                                        </div>
+                                    </td>
+                                    {/* Role */}
+                                    <td className="px-2.5 py-2">
+                                        <div className="flex items-center justify-center bg-[#FF8F91] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                            Sales Rep
+                                        </div>
+                                    </td>
+                                    {/* Action */}
+                                    <td className="px-2.5 py-2">
+                                        <button
+                                            onClick={() => setView("customer-details")}
+                                            className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer mr-4"
+                                        >
+                                            Change Role
+                                        </button>
+                                        <button className="p-2 bg-red-100 rounded-full cursor-pointer">
+                                            <RiDeleteBin6Line className="text-red-600" />
                                         </button>
                                     </td>
                                 </tr>
