@@ -1,8 +1,4 @@
 import { useState } from "react";
-import SettingsAddUser from "./SettingsAddUser";
-import { AiOutlineUserAdd } from "react-icons/ai";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FiArrowLeft, FiHelpCircle, FiSend } from "react-icons/fi";
 import SettingsRolePermission from "./SettingsRolePermission";
 
 export default function SettingsRole() {
