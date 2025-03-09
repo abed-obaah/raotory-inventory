@@ -14,7 +14,7 @@ export default function SettingsRolePermission({ setView }) {
             </button>
             
             {/* Role permissions */}
-            <div>
+            <div className="mb-16">
                 {/* Title / Select all */}
                 <div className="flex items-center justify-between">
                     {/* Title */}
@@ -34,6 +34,7 @@ export default function SettingsRolePermission({ setView }) {
                         </label>
                     </div>
                 </div>
+
                 {/* Roles */}
                 <div class="flex flex-col gap-y-7">
                     {/* Administrator */}
@@ -75,6 +76,15 @@ export default function SettingsRolePermission({ setView }) {
                 </div>
             </div>
 
+            {/* Button */}
+            <div className="w-full max-w-[484px]">
+                <button
+                    onClick={() => setView("settings-role-permission")}
+                    className="bg-blue-500 text-white px-11 py-3.5 rounded-[10px] w-full cursor-pointer"
+                >
+                    Create Role
+                </button>
+            </div>
         </div>
     );
 }
