@@ -53,28 +53,29 @@ const userNavigation = [
   { name: "Store Name 03", href: "#" },
 ];
 
-const components = {
-  "Overview": () => <Overview />,
-  "Input Order": () => <InputOrder />,
-  "Stock Products": () => <div><StockProduct /></div>,
-  "Returned Products": () => <div><ReturnedProducts /></div>,
-  "Inventory": () => <Inventory />,
-  "Invoice": () => <div><Invoice /></div>,
-  "Sales History": () => <div><SalesHistory /></div>,
-  "Create Customer": () => <div><CreateCustomer /></div>,
-  "General": () => <SettingsGeneral />,
-  "Users": () => <SettingsUsers />,
-  "Role": () => <div><SettingsRole /></div>,
-  "Help Center": () => <div>Help Center Content</div>,
-};
-
 export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState("Overview");
   const [isProductsOpen, setIsProductsOpen] = useState(false); // State for Products dropdown
   const [isSettingsOpen, setIsSettingsOpen] = useState(false); // State for Settings dropdown
-
   const [breadcrumb, setBreadcrumb] = useState([{ name: "Dashboard", href: "/" }]);
+
+
+  const components = {
+    //   "Overview": () => <Overview />,
+      "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
+      "Input Order": () => <InputOrder />,
+      "Stock Products": () => <div><StockProduct /></div>,
+      "Returned Products": () => <div><ReturnedProducts /></div>,
+      "Inventory": () => <Inventory />,
+      "Invoice": () => <div><Invoice /></div>,
+      "Sales History": () => <div><SalesHistory /></div>,
+      "Create Customer": () => <div><CreateCustomer /></div>,
+      "General": () => <SettingsGeneral />,
+      "Users": () => <SettingsUsers />,
+      "Role": () => <div><SettingsRole /></div>,
+      "Help Center": () => <div>Help Center Content</div>,
+    };
 
   // Update breadcrumb when component changes
   useEffect(() => {

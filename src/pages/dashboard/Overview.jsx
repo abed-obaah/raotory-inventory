@@ -5,7 +5,7 @@ import { BiDollar } from "react-icons/bi";
 import { BsBag } from "react-icons/bs";
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 
-export default function InputOrder() {
+export default function Overview({ setSelectedComponent }) {
     return (
         <>
             {/* Main wrapper */}
@@ -44,8 +44,13 @@ export default function InputOrder() {
 
                 {/* Summary cards section */}
                 <div className="flex gap-2 w-full flex-wrap mb-12.5 xl:justify-between">
+                    
                     {/* Today's sales */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0">
+                    <div 
+                        id="todays-sales" 
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
+                        onClick={() => setSelectedComponent("Sales History")} // Update state when clicked
+                    >
                         <div className="flex items-center justify-center bg-[#E7F8FC] size-15 rounded-full mb-7.5">
                             <GoGraph className="size-4" />
                         </div>
@@ -61,8 +66,13 @@ export default function InputOrder() {
                             <p className="text-gray-757575 text-sm font-medium">Than last month</p>
                         </div>
                     </div>
+
                     {/* No. of invoices issued */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0">
+                    <div 
+                        id="no-of-invoices"
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
+                        onClick={() => setSelectedComponent("Invoice")} // Update state when clicked
+                    >
                         <div className="flex items-center justify-center bg-[#F0E8FC] size-15 rounded-full mb-7.5">
                             <BsCalendar3 className="size-4" />
                         </div>
@@ -78,8 +88,9 @@ export default function InputOrder() {
                             <p className="text-gray-757575 text-sm font-medium">Than last month</p>
                         </div>
                     </div>
+
                     {/* Profit made */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0">
+                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl">
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BiDollar className="size-4" />
                         </div>
@@ -95,8 +106,13 @@ export default function InputOrder() {
                             <p className="text-gray-757575 text-sm font-medium">Than last month</p>
                         </div>
                     </div>
+
                     {/* No. of products sold */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0">
+                    <div 
+                        id="no-of-products-sold"
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
+                        onClick={() => setSelectedComponent("Inventory")} // Update state when clicked
+                    >
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BsBag className="size-4" />
                         </div>
