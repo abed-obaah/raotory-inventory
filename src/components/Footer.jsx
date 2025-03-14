@@ -79,6 +79,11 @@ const navigation = {
   }
   
   export default function Footer() {
+
+    // Auto update year
+    const today = new Date();
+    const year = today.getFullYear();
+
     return (
       <footer className="section-mt bg-blue-0e90da">
         {/* Footer wrapper */}
@@ -162,7 +167,7 @@ const navigation = {
           </div>
           {/* Copyright information */}
           <div className="mt-6 md:mt-8 border-t border-gray-d9d9d9 pt-6 md:pt-8">
-            <p className="text-sm/6 text-white">&copy; 2024 Raotory. All rights reserved.</p>
+            <p className="text-sm/6 text-white">&copy; {year} Raotory. All rights reserved.</p>
           </div>
         </div>
       </footer>
