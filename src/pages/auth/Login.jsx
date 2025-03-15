@@ -6,6 +6,7 @@ import { loginUser } from "../../api/authApi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -23,6 +24,7 @@ export default function Login() {
         const data = await loginUser(email, password);
         dispatch(loginSuccess(data));
         navigate("/onboarding");
+        console.log(data.message)
       } catch (err) {
         dispatch(loginFailure(err));
       }

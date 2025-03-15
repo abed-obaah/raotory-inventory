@@ -53,6 +53,7 @@ export const loginUser = async (email, password) => {
       },
     });
 
+    // console.log(data)
     return response.data; // Ensure API returns a user object and token
   } catch (error) {
     throw error.response?.data?.message || "Login failed!";
