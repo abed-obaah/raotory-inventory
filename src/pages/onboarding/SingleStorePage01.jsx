@@ -1,8 +1,6 @@
 import { useState } from "react";
 import OnboardingHome from "./OnboardingHome";
 import SingleStorePage02 from "./SingleStorePage02";
-import SingleStorePage03 from "./SingleStorePage02";
-import SingleStorePage04 from "./SingleStorePage02";
 import { FiArrowLeft } from "react-icons/fi";
 
 export default function SingleStorePage01() {

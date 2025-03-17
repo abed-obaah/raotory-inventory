@@ -1,8 +1,6 @@
 import { useState } from "react";
 import OnboardingHome from "./OnboardingHome";
 import MultiStorePage02 from "./MultiStorePage02";
-import MultiStorePage03 from "./MultiStorePage02";
-import MultiStorePage04 from "./MultiStorePage02";
 import { FiArrowLeft } from "react-icons/fi";
 
 export default function MultiStorePage01() {
@@ -39,8 +37,6 @@ export default function MultiStorePage01() {
 
             {view === "onboarding-home" && <OnboardingHome setView={setView} />}
             {view === "multi-store-page-02" && <MultiStorePage02 setView={setView} />}
-            {view === "multi-store-page-03" && <MultiStorePage03 setView={setView} />}
-            {view === "multi-store-page-04" && <MultiStorePage04 setView={setView} />}
         </>
     );
 }
