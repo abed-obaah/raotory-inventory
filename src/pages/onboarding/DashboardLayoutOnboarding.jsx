@@ -39,6 +39,9 @@ import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import Inventory from "../dashboard/Inventory";
 import OnboardingFlow from "./OnboardingFlow";
 import StockProduct from "../dashboard/StockProduct";
+import SingleStorePage01 from "./SingleStorePage01";
+import MultiStorePage01 from "./MultiStorePage01";
+import OnboardingHome from "./OnboardingHome";
 
 const userNavigation = [
   { name: "Store Name 01", href: "#" },
@@ -53,6 +56,9 @@ const components = {
   "Inventory": () => <Inventory />,
   "Settings": () => <div>Settings Content</div>,
   "Help Center": () => <div>Help Center Content</div>,
+  "Single Store": () => <SingleStorePage01 />,
+  "Multi Store": () => <MultiStorePage01 />,
+  "Onboarding Home": () => <OnboardingHome />,
 };
 
 export default function DashboardLayoutOnboarding() {
@@ -248,6 +254,9 @@ export default function DashboardLayoutOnboarding() {
                                 <ul className="space-y-1">
                                     {[
                                     { name: "Onboarding", icon: HomeIcon },
+                                    { name: "Onboarding Home", icon: HomeIcon },
+                                    { name: "Single Store", icon: HomeIcon },
+                                    { name: "Multi Store", icon: HomeIcon },
 
                                     ].map(({ name, icon: Icon }) => (
                                     <li key={name}>
