@@ -3,7 +3,7 @@ import OnboardingHome from "./OnboardingHome";
 import MultiStorePage02 from "./MultiStorePage02";
 import { FiArrowLeft } from "react-icons/fi";
 
-export default function MultiStorePage01({ setStep, setStoreCount }) {
+export default function MultiStorePage01({ setStoreCount }) {
     const [view, setView] = useState("multi-store-page-01");
 
     const [selectedStore, setSelectedStore] = useState(null);
@@ -92,7 +92,7 @@ export default function MultiStorePage01({ setStep, setStoreCount }) {
             )}
 
             {view === "onboarding-home" && <OnboardingHome setView={setView} />}
-            {view === "multi-store-page-02" && <MultiStorePage02 setView={setView} />}
+            {view === "multi-store-page-02" && <MultiStorePage02 setView={setView} storeCount={selectedStore} />}
         </>
     );
 }
