@@ -26,7 +26,7 @@ export default function HomeCallToAction() {
         <div className="mt-11 flex flex-col sm:flex-row items-center justify-center gap-x-5 gap-y-4">
           <button
             onClick={handleGetStarted}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4.5 md:px-11 py-3 md:py-4 rounded-full font-semibold transition cursor-pointer"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4.5 md:px-11 py-4 rounded-full font-semibold transition cursor-pointer w-full sm:w-max"
           >
             Get Started
           </button>

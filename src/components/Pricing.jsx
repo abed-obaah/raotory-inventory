@@ -130,7 +130,7 @@ export default function Pricing() {
                         {/* Button */}
                         <button
                             onClick={handleGetStarted}
-                            className="w-full cursor-pointer text-white bg-blue-29a8f1 hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm px-11 py-2.5 text-center dark:bg-blue-29a8f1 dark:bg-blue-0e90da dark:focus:ring-blue-300"
+                            className="w-full cursor-pointer text-white bg-blue-29a8f1 hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm px-11 py-3 text-center dark:bg-blue-29a8f1 dark:bg-blue-0e90da dark:focus:ring-blue-300"
                         >
                             Get Started
                         </button>
@@ -180,7 +180,7 @@ export default function Pricing() {
                         </ul>
                         <button
                             onClick={handleGetStarted}
-                            className="w-full cursor-pointer text-white bg-blue-29a8f1 hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm px-11 py-2.5 text-center dark:bg-blue-29a8f1 dark:bg-blue-0e90da dark:focus:ring-blue-300"
+                            className="w-full cursor-pointer text-white bg-blue-29a8f1 hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm px-11 py-3 text-center dark:bg-blue-29a8f1 dark:bg-blue-0e90da dark:focus:ring-blue-300"
                         >
                             Get Started
                         </button>
