@@ -27,7 +27,7 @@ export default function HomeHero() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
                 <button
                     onClick={handleGetStarted}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4.5 md:px-11 py-4 rounded-full font-semibold transition cursor-pointer w-full sm:w-max"
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full font-semibold transition cursor-pointer w-full sm:w-max"
                 >
                     Get Started
                 </button>

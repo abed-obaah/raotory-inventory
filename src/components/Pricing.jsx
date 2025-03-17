@@ -87,7 +87,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Pricing Cards */}
-                <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-12">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-12">
                     {/* Single Store Pricing Card */}
                     <div className="flex flex-col p-6 max-w-[352px] text-gray-0d0d0d bg-white rounded-[20px] border border-black-10-percent shadow">
                         {/* Plan icon */}
