@@ -37,10 +37,7 @@ import { HiLogout } from "react-icons/hi";
 
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import Inventory from "../dashboard/Inventory";
-import OnboardingFlow from "./OnboardingFlow";
 import StockProduct from "../dashboard/StockProduct";
-import SingleStorePage01 from "./SingleStorePage01";
-import MultiStorePage01 from "./MultiStorePage01";
 import OnboardingHome from "./OnboardingHome";
 
 const userNavigation = [
@@ -50,15 +47,12 @@ const userNavigation = [
 ];
 
 const components = {
-  "Onboarding": () => <OnboardingFlow />,
+  "Onboarding Home": () => <OnboardingHome />,
   "Stock Products": () => <div><StockProduct /></div>,
   "Returned Products": () => <div>Returned Products Content</div>,
   "Inventory": () => <Inventory />,
   "Settings": () => <div>Settings Content</div>,
   "Help Center": () => <div>Help Center Content</div>,
-  "Single Store": () => <SingleStorePage01 />,
-  "Multi Store": () => <MultiStorePage01 />,
-  "Onboarding Home": () => <OnboardingHome />,
 };
 
 export default function DashboardLayoutOnboarding() {
@@ -118,7 +112,6 @@ export default function DashboardLayoutOnboarding() {
                                     <li className="flex flex-1 flex-col">
                                         <ul className="space-y-1">
                                             {[
-                                            { name: "Onboarding", icon: HomeIcon },
                                             { name: "Overview", icon: BiSolidDashboard },
                                             { name: "Input Order", icon: HiOutlineShoppingCart },
 
@@ -253,10 +246,7 @@ export default function DashboardLayoutOnboarding() {
                             <li className="flex flex-1 flex-col">
                                 <ul className="space-y-1">
                                     {[
-                                    { name: "Onboarding", icon: HomeIcon },
                                     { name: "Onboarding Home", icon: HomeIcon },
-                                    { name: "Single Store", icon: HomeIcon },
-                                    { name: "Multi Store", icon: HomeIcon },
 
                                     ].map(({ name, icon: Icon }) => (
                                     <li key={name}>
