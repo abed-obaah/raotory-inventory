@@ -114,7 +114,7 @@ export default function OnboardingStart({ selectStoreType }) {
                         </ul>
                         {/* Button */}
                         <button
-                        onClick={() => selectStoreType("single")}
+                            onClick={() => selectStoreType("single")}
                             className="w-full text-white text-base font-medium text-center bg-blue-29a8f1 hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] px-11 py-2.5"
                         >
                             Get Started

@@ -1,372 +1,68 @@
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux"; // For logout
+import StoreSetupSuccess from "/src/assets/store-setup-success.png";
+import { FiArrowLeft } from "react-icons/fi";
+import SingleStorePage01 from "./SingleStorePage01";
+import SingleStorePage03 from "./SingleStorePage03";
 
-import {
-  Cog6ToothIcon,
-} from "@heroicons/react/24/outline";
+export default function SingleStorePage02({ setView }) {
+    return (
+        <div id="single-store-page-02">
 
-import {
-  ChevronDownIcon,
-} from "@heroicons/react/20/solid";
+            {/* Back Button */}
+            <button 
+                onClick={() => setView("single-store-page-01")}
+                className="flex items-center text-dark-primary font-semibold cursor-pointer mb-4"
+            >
+                <FiArrowLeft className="text-dark-primary text-xl mr-1" />  
+                Back
+            </button>
 
-import { BiSolidDashboard } from "react-icons/bi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
-import { CgList } from "react-icons/cg";
-import { PiScroll } from "react-icons/pi";
-import { TbHistory } from "react-icons/tb";
-import { LuCircleUserRound } from "react-icons/lu";
-import { TbHelpSquareRounded } from "react-icons/tb";
-
-import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
-import InputOrder from "./InputOrder";
-import Inventory from "./Inventory";
-import Overview from "./Overview";
-import StockProduct from "./StockProduct";
-import ReturnedProducts from "./ReturnedProducts";
-import Invoice from "./Invoice";
-import SalesHistory from "./SalesHistory";
-import CreateCustomer from "./CreateCustomer";
-import SettingsGeneral from "./SettingsGeneral";
-import SettingsUsers from "./SettingsUsers";
-import SettingsRole from "./SettingsRole";
-
-const userNavigation = [
-  { name: "Store Name 01", href: "#" },
-  { name: "Store Name 02", href: "#" },
-  { name: "Store Name 03", href: "#" },
-];
-
-const components = {
-  // "Overview": () => <Overview />,
-  "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
-  "Input Order": () => <InputOrder />,
-  "Stock Products": () => <div><StockProduct /></div>,
-  "Returned Products": () => <div><ReturnedProducts /></div>,
-  "Inventory": () => <Inventory />,
-  "Invoice": () => <div><Invoice /></div>,
-  "Sales History": () => <div><SalesHistory /></div>,
-  "Create Customer": () => <div><CreateCustomer /></div>,
-  "General": () => <SettingsGeneral />,
-  "Users": () => <SettingsUsers />,
-  "Role": () => <div><SettingsRole /></div>,
-  "Help Center": () => <div>Help Center Content</div>,
-};
-
-export default function DashboardLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedComponent, setSelectedComponent] = useState("Overview");
-  const [isProductsOpen, setIsProductsOpen] = useState(false); // State for Products dropdown
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false); // State for Settings dropdown
-
-  const [breadcrumb, setBreadcrumb] = useState([{ name: "Dashboard", href: "/" }]);
-
-  // Update breadcrumb when component changes
-  useEffect(() => {
-  setBreadcrumb([{ name: "Dashboard", href: "/" }, { name: selectedComponent, href: "#" }]);
-  }, [selectedComponent]);
-
-  // For logout button
-  const dispatch = useDispatch();
-
-  return (
-    <>
-        {/* Dashboard wrapper */}
-        <div className="max-w-screen-2xl mx-auto">
-
-            {/* Static sidebar for desktop */}
-            <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+            {/* Single store set up congratulations */}
+            <div className="flex flex-col w-full max-w-[536px] mx-auto mt-10">
                 
-                {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
+                {/* Heading */}
+                <div className="mb-7 text-center">
+                    <h2 className="text-2xl font-semibold mb-2">
+                        Single store
+                    </h2>
+                    <p className="text-gray-600 text-base max-w-[468px] mx-auto">
+                        This gives you the ability to set up your store and inventory appropriately
+                    </p>
+                </div>
+    
+                {/* Form */}
+                <div className="w-full border border-black-10-percent rounded-3xl p-10.5">
+                    <form action="#" method="POST" className="">
 
-                    {/* Company logo */}
-                    <div className="flex h-16 shrink-0 items-center px-2">
-                        <a href="/" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Raotory</span>
-                            <img
-                            alt="Raotory logo"
-                            src={RaotoryLogoAndNameBlue}
-                            className="h-5 w-auto"
-                            />
-                        </a>
-                    </div>
-                   
-                    {/* Sidebar menu */}
-                    <nav className="flex flex-1 flex-col">
-                        <ul role="list" className="flex flex-1 flex-col gap-y-7 justify-between">
-                            
-                            {/* Top sidebar menu items */}
-                            <li className="flex flex-1 flex-col">
-                                <ul className="space-y-1">
+                        {/* Image */}
+                        <div className="">
+                            <img src={StoreSetupSuccess} alt="Succes image" className="w-full h-auto object-cover" />
+                        </div>
+                        <h4 className="text-4xl font-bold text-center mb-4.5">Yay!</h4>
+                        <p className="text-center">Congratulations, you have successfully set up your store on Raotory, Your stock keeping buddy!</p>
 
-                                    {/* Overview, Input Order */}
-                                    {[
-                                    { name: "Overview", icon: BiSolidDashboard },
-                                    { name: "Input Order", icon: HiOutlineShoppingCart },
-                                    ].map(({ name, icon: Icon }) => (
-                                    <li key={name}>
-                                        <button
-                                        onClick={() => setSelectedComponent(name)}
-                                        className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                            selectedComponent === name
-                                            ? "bg-blue-500 text-white"
-                                            : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                        }`}
-                                        >
-                                        <Icon className="size-6" /> {name}
-                                        </button>
-                                    </li>
-                                    ))}
-
-                                    {/* Products */}
-                                    <li>
-                                        <button
-                                            onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                        >
-                                            <span className="flex items-center gap-x-3">
-                                            <CgList className="size-6" /> Products
-                                            </span>
-                                            <ChevronDownIcon className={`size-5 transition-transform ${isProductsOpen ? "rotate-180" : "rotate-0"}`} />
-                                        </button>
-                                        {isProductsOpen && (
-                                            <ul className="ml-4 mt-1 space-y-1">
-                                            {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
-                                                <li key={subItem}>
-                                                <button
-                                                    onClick={() => setSelectedComponent(subItem)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === subItem
-                                                        ? "bg-blue-500 text-white"
-                                                        : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                    }`}
-                                                >
-                                                    {subItem}
-                                                </button>
-                                                </li>
-                                            ))}
-                                            </ul>
-                                        )}
-                                    </li>
-                                    
-                                    {/* Invoice, Sales History, Create Customer */}
-                                    {[{ name: "Invoice", icon: PiScroll },
-                                        { name: "Sales History", icon: TbHistory },
-                                        { name: "Create Customer", icon: LuCircleUserRound }].map(({ name, icon: Icon }) => (
-                                        <li key={name}>
-                                            <button
-                                            onClick={() => setSelectedComponent(name)}
-                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                selectedComponent === name
-                                                ? "bg-blue-500 text-white"
-                                                : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                            }`}
-                                            >
-                                            <Icon className="size-6" /> {name}
-                                            </button>
-                                        </li>
-                                    ))}
-
-                                    {/* Settings */}
-                                    <li>
-                                        <button
-                                            onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                        >
-                                            <span className="flex items-center gap-x-3">
-                                                <Cog6ToothIcon className="size-6" /> Settings
-                                            </span>
-                                            <ChevronDownIcon className={`size-5 transition-transform ${isSettingsOpen ? "rotate-180" : "rotate-0"}`} />
-                                        </button>
-                                        {isSettingsOpen && (
-                                            <ul className="ml-4 mt-1 space-y-1">
-                                                {["General", "Users", "Role"].map((subItem) => (
-                                                    <li key={subItem}>
-                                                        <button
-                                                            onClick={() => setSelectedComponent(subItem)}
-                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                                selectedComponent === subItem
-                                                                    ? "bg-blue-500 text-white"
-                                                                    : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                            }`}
-                                                        >
-                                                            {subItem}
-                                                        </button>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </li>
-
-                                    {/* Help Center */}
-                                    {[{ name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
-                                        <li key={name}>
-                                            <button
-                                            onClick={() => setSelectedComponent(name)}
-                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                selectedComponent === name
-                                                ? "bg-blue-500 text-white"
-                                                : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                            }`}
-                                            >
-                                            <Icon className="size-6" /> {name}
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                        {/* Button */}
+                        <div className="mb-4 mt-10">
+                            <button
+                                onClick={() => setView("single-store-page-03")}
+                                className="flex w-full justify-center bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-semibold rounded-[10px] text-base p-4 text-center me-2"
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
-            {/* Dashboard main section */}
-            <div className="lg:pl-72">
-              {/* Main content area */}
-              <main className="p-8">
-                  <div id="main-content-area">
-                      {components[selectedComponent] ? components[selectedComponent]() : <div>Not Found</div>}
-                  </div>
-              </main>
+            {/* Next button */}
+            <div className="w-full max-w-[340px] mx-auto mt-10 hidden">
+                <button
+                    onClick={() => setView("single-store-page-03")}
+                    className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full cursor-pointer"
+                >
+                    Next
+                </button>
             </div>
+
         </div>
-    </>
-  );
+    );
 }
-=======
-export default function Example() {
-    return (
-      <fieldset>
-        <legend className="sr-only">Notifications</legend>
-        <div className="space-y-5">
-          <div className="flex gap-3">
-            <div className="flex h-6 shrink-0 items-center">
-              <div className="group grid size-4 grid-cols-1">
-                <input
-                  defaultChecked
-                  id="comments"
-                  name="comments"
-                  type="checkbox"
-                  aria-describedby="comments-description"
-                  className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                />
-                <svg
-                  fill="none"
-                  viewBox="0 0 14 14"
-                  className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25"
-                >
-                  <path
-                    d="M3 8L6 11L11 3.5"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-checked:opacity-100"
-                  />
-                  <path
-                    d="M3 7H11"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-indeterminate:opacity-100"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="text-sm/6">
-              <label htmlFor="comments" className="font-medium text-gray-900">
-                Comments
-              </label>
-              <p id="comments-description" className="text-gray-500">
-                Get notified when someones posts a comment on a posting.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <div className="flex h-6 shrink-0 items-center">
-              <div className="group grid size-4 grid-cols-1">
-                <input
-                  id="candidates"
-                  name="candidates"
-                  type="checkbox"
-                  aria-describedby="candidates-description"
-                  className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                />
-                <svg
-                  fill="none"
-                  viewBox="0 0 14 14"
-                  className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25"
-                >
-                  <path
-                    d="M3 8L6 11L11 3.5"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-checked:opacity-100"
-                  />
-                  <path
-                    d="M3 7H11"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-indeterminate:opacity-100"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="text-sm/6">
-              <label htmlFor="candidates" className="font-medium text-gray-900">
-                Candidates
-              </label>
-              <p id="candidates-description" className="text-gray-500">
-                Get notified when a candidate applies for a job.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <div className="flex h-6 shrink-0 items-center">
-              <div className="group grid size-4 grid-cols-1">
-                <input
-                  id="offers"
-                  name="offers"
-                  type="checkbox"
-                  aria-describedby="offers-description"
-                  className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                />
-                <svg
-                  fill="none"
-                  viewBox="0 0 14 14"
-                  className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25"
-                >
-                  <path
-                    d="M3 8L6 11L11 3.5"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-checked:opacity-100"
-                  />
-                  <path
-                    d="M3 7H11"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-0 group-has-indeterminate:opacity-100"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="text-sm/6">
-              <label htmlFor="offers" className="font-medium text-gray-900">
-                Offers
-              </label>
-              <p id="offers-description" className="text-gray-500">
-                Get notified when a candidate accepts or rejects an offer.
-              </p>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    )
-  }
-  
->>>>>>> 192c2a2 (state management changed from localstorage to persist)
