@@ -103,14 +103,17 @@ export default function DashboardLayoutOnboarding() {
                                             ].map(({ name, icon: Icon }) => (
                                             <li key={name}>
                                                 <button
-                                                onClick={() => setSelectedComponent(name)}
-                                                className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === name
-                                                    ? "bg-blue-500 text-white"
-                                                    : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                }`}
+                                                    onClick={() => {
+                                                        setSelectedComponent(name);
+                                                        setSidebarOpen(false); // Close sidebar
+                                                    }}
+                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                        selectedComponent === name
+                                                        ? "bg-blue-500 text-white"
+                                                        : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                    }`}
                                                 >
-                                                <Icon className="size-6" /> {name}
+                                                    <Icon className="size-6" /> {name}
                                                 </button>
                                             </li>
                                             ))}
@@ -120,14 +123,17 @@ export default function DashboardLayoutOnboarding() {
                                             {[  { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
                                                 <li key={name}>
                                                     <button
-                                                    onClick={() => setSelectedComponent(name)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                        selectedComponent === name
-                                                        ? "bg-blue-500 text-white"
-                                                        : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                    }`}
+                                                        onClick={() => {
+                                                            setSelectedComponent(name)
+                                                            setSidebarOpen(false); // Close sidebar
+                                                        }}
+                                                        className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                            selectedComponent === name
+                                                            ? "bg-blue-500 text-white"
+                                                            : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                        }`}
                                                     >
-                                                    <Icon className="size-6" /> {name}
+                                                        <Icon className="size-6" /> {name}
                                                     </button>
                                                 </li>
                                             ))}
