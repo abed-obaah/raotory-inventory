@@ -15,22 +15,22 @@ export default function Invoice() {
                     <p className="text-[10px] text-gray-757575 font-semibold mb-2 text-right">18th March 2024</p>
 
                     {/* Hero */}
-                    <div className='flex justify-between bg-blue-0e90da rounded-[10px] min-h-[164px] mb-8'>
+                    <div className='flex flex-col sm:flex-row justify-between bg-blue-0e90da rounded-[10px] min-h-[164px] mb-8'>
                         {/* Left side */}
                         <div className='flex flex-col justify-between p-6'>
                             {/* Top section */}
-                            <h2 className='text-white-f8fdff text-2xl'>All Invoices</h2>
+                            <h2 className='text-white-f8fdff text-2xl mb-4 sm:mb-0'>All Invoices</h2>
                             {/* Lower section */}
-                            <div className='flex items-center gap-x-10'>
+                            <div className='flex flex-col sm:flex-row sm:items-center gap-y-4 gap-x-10'>
                                 {/* Begin date */}
                                 <div>
                                     <p className="text-white-f8fdff text-xs font-semibold mb-1">Begin Date</p>
-                                    <input type="date" className="bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
+                                    <input type="date" className="w-full sm:w-auto bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
                                 </div>
                                 {/* End date */}
                                 <div>
                                     <p className="text-white-f8fdff text-xs font-semibold mb-1">End Date</p>
-                                    <input type="date" className="bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
+                                    <input type="date" className="w-full sm:w-auto bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
                                 </div>
                                 {/* Status */}
                                 <form class="">
@@ -44,7 +44,7 @@ export default function Invoice() {
                             </div>
                         </div>
                         {/* Right side */}
-                        <div className='flex items-end pr-13.5'>
+                        <div className='hidden xl:flex items-end pr-13.5'>
                             <img src={InvoiceHeroImage} alt="Image of an invoice" className='w-full max-w-[300px] h-auto max-h-[145px] object-cover' />
                         </div>
                     </div>
