@@ -242,7 +242,7 @@ export default function DashboardLayoutOnboarding() {
                             <li className="flex flex-1 flex-col">
                                 <ul className="space-y-1">
                                     {[
-                                    { name: "Onboarding Home", icon: HomeIcon },
+                                    { name: "Onboarding", icon: HomeIcon },
 
                                     ].map(({ name, icon: Icon }) => (
                                     <li key={name}>
