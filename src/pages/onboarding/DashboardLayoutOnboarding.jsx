@@ -105,8 +105,7 @@ export default function DashboardLayoutOnboarding() {
                                     <li className="flex flex-1 flex-col">
                                         <ul className="space-y-1">
                                             {[
-                                            { name: "Overview", icon: BiSolidDashboard },
-                                            { name: "Input Order", icon: HiOutlineShoppingCart },
+                                            { name: "Onboarding", icon: HomeIcon },
 
                                             ].map(({ name, icon: Icon }) => (
                                             <li key={name}>
@@ -123,42 +122,9 @@ export default function DashboardLayoutOnboarding() {
                                             </li>
                                             ))}
 
-                                            {/* Products Submenu */}
-                                            <li>
-                                                <button
-                                                    onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                                    className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                >
-                                                    <span className="flex items-center gap-x-3">
-                                                    <CgList className="size-6" /> Products
-                                                    </span>
-                                                    <ChevronDownIcon className={`size-5 transition-transform ${isProductsOpen ? "rotate-180" : "rotate-0"}`} />
-                                                </button>
-                                                {isProductsOpen && (
-                                                    <ul className="ml-4 mt-1 space-y-1">
-                                                    {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
-                                                        <li key={subItem}>
-                                                        <button
-                                                            onClick={() => setSelectedComponent(subItem)}
-                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                            selectedComponent === subItem
-                                                                ? "bg-blue-500 text-white"
-                                                                : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                            }`}
-                                                        >
-                                                            {subItem}
-                                                        </button>
-                                                        </li>
-                                                    ))}
-                                                    </ul>
-                                                )}
-                                            </li>
+                                            {/* Products Submenu removed from here*/}
 
-                                            {[{ name: "Invoice", icon: PiScroll },
-                                                { name: "Sales History", icon: TbHistory },
-                                                { name: "Create Customer", icon: LuCircleUserRound },
-                                                { name: "Settings", icon: Cog6ToothIcon },
-                                                { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
+                                            {[  { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
                                                 <li key={name}>
                                                     <button
                                                     onClick={() => setSelectedComponent(name)}
@@ -178,9 +144,10 @@ export default function DashboardLayoutOnboarding() {
                                     {/* Middle sidebar menu - mobile - removed from here*/}
                                     
                                     {/* Bottom sidebar menu - mobile */}
-                                    <li className="mt-auto">
-                                        <ul className="">
-                                            <li className="px-2">
+                                    <li>
+                                        <ul>
+                                            {/* Dark mode */}
+                                            <li className="px-2 hidden">
                                                 <a
                                                     href="#"
                                                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
@@ -192,17 +159,18 @@ export default function DashboardLayoutOnboarding() {
                                                     Dark Mode
                                                 </a>
                                             </li>
+                                            {/* Logout */}
                                             <li className="px-2">
-                                                <a
-                                                    href="#"
-                                                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
+                                                <button
+                                                    onClick={() => dispatch(logout())}
+                                                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 cursor-pointer hover:bg-blue-29a8f1 hover:text-white"
                                                 >
                                                     <HiLogout
                                                         aria-hidden="true"
                                                         className="size-6 shrink-0 text-gray-757575 group-hover:text-white"
                                                     />
                                                     Logout
-                                                </a>
+                                                </button>
                                             </li>
                                         </ul>
                                     </li>
