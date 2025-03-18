@@ -140,12 +140,15 @@ export default function DashboardLayout() {
                                             ].map(({ name, icon: Icon }) => (
                                             <li key={name}>
                                                 <button
-                                                onClick={() => setSelectedComponent(name)}
-                                                className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === name
-                                                    ? "bg-blue-500 text-white"
-                                                    : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                }`}
+                                                    onClick={() => {
+                                                        setSelectedComponent(name)
+                                                        setSidebarOpen(false); // Close sidebar
+                                                    }}
+                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                        selectedComponent === name
+                                                        ? "bg-blue-500 text-white"
+                                                        : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                    }`}
                                                 >
                                                 <Icon className="size-6" /> {name}
                                                 </button>
@@ -168,7 +171,10 @@ export default function DashboardLayout() {
                                                     {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
                                                         <li key={subItem}>
                                                         <button
-                                                            onClick={() => setSelectedComponent(subItem)}
+                                                            onClick={() => {
+                                                                setSelectedComponent(subItem)
+                                                                setSidebarOpen(false); // Close sidebar
+                                                            }}
                                                             className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
                                                             selectedComponent === subItem
                                                                 ? "bg-blue-500 text-white"
@@ -189,7 +195,10 @@ export default function DashboardLayout() {
                                                 { name: "Create Customer", icon: LuCircleUserRound }].map(({ name, icon: Icon }) => (
                                                 <li key={name}>
                                                     <button
-                                                    onClick={() => setSelectedComponent(name)}
+                                                    onClick={() => {
+                                                        setSelectedComponent(name)
+                                                        setSidebarOpen(false); // Close sidebar
+                                                    }}
                                                     className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
                                                         selectedComponent === name
                                                         ? "bg-blue-500 text-white"
