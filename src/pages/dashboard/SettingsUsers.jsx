@@ -12,7 +12,7 @@ export default function SettingsUsers() {
                 <div id="settings-users">
 
                     {/* Title, search, button */}
-                    <div className="flex items-center justify-between mb-14">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-6 mb-14">
                         <div>
                             <h1 className="text-2xl text-dark-primary font-semibold mb-1">
                                 User Management
@@ -21,7 +21,7 @@ export default function SettingsUsers() {
                                 Manage your staff roles easily
                             </p>
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex flex-col md:flex-row md:items-center gap-4">
                             {/* Search settings */}
                             <div className="w-full min-w-[306px]">
                                 <form className="flex items-center mx-auto">
