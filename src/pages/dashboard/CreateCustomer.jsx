@@ -13,9 +13,9 @@ export default function CreateCustomer() {
             {view === "create-customer" && (
                 <div id="create-customer">
                     {/* Search customer / create customer */}
-                    <div className="flex items-center justify-between mb-12.5">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-y-6 mb-12.5">
                         {/* Search customer */}
-                        <div className="w-full max-w-[340px]">
+                        <div className="w-full sm:max-w-[340px]">
                             <form className="flex items-center mx-auto">
                                 <div className="relative w-full">
                                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -28,7 +28,7 @@ export default function CreateCustomer() {
                             </form>
                         </div>
                         {/* Create customer */}
-                        <div className="w-full max-w-[340px]">
+                        <div className="w-full sm:max-w-[340px]">
                             <button
                                 onClick={() => setView("create-new-customer")}
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full cursor-pointer"
