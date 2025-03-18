@@ -52,7 +52,7 @@ export default function SingleStorePage01() {
                         </div>
 
                         {/* Form */}
-                        <div className="w-full border border-black-10-percent rounded-3xl p-10.5">
+                        <div className="w-full border border-black-10-percent rounded-3xl p-6 lg:p-10.5">
                             <form action="#" method="POST" className="space-y-6">
                                 {/* Business name */}
                                 <div>
