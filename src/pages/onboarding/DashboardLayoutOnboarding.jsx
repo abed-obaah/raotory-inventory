@@ -34,7 +34,6 @@ import { LuCircleUserRound } from "react-icons/lu";
 import { TbHelpSquareRounded } from "react-icons/tb";
 import { MdDarkMode } from "react-icons/md";
 import { HiLogout } from "react-icons/hi";
-
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import OnboardingHome from "./OnboardingHome";
 
@@ -46,7 +45,7 @@ const userNavigation = [
 
 const components = {
   "Onboarding": () => <OnboardingHome />,
-  "Help Center": () => <div>Help Center Content</div>,
+  "Help Center": () => <div>Help Center coming soon.</div>,
 };
 
 export default function DashboardLayoutOnboarding() {
