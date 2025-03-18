@@ -115,7 +115,7 @@ export default function Inventory() {
         )}
 
         {/* Total products and search section */}
-        <div className="flex items-center gap-20 mb-10">
+        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-20 mb-10">
             <div className="whitespace-nowrap">
                 <p className="text-gray-757575 text-sm font-medium">Total Products</p>
                 <h4 id="total-products" className="text-gray-757575 text-4xl font-semibold">
@@ -158,7 +158,7 @@ export default function Inventory() {
                     {paginatedProducts.map((product, index) => (
                     <tr key={product.id} className="bg-white hover:bg-gray-100">
                         <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">{startIndex + index + 1}</td>
-                        <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">{product.name}</td>
+                        <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 whitespace-nowrap">{product.name}</td>
                         <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">{product.quantityStocked}</td>
                         <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">{product.quantitySold}</td>
                         <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">{product.expiringDate}</td>
