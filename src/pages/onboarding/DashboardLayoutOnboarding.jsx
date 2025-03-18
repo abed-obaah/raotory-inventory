@@ -48,10 +48,6 @@ const userNavigation = [
 
 const components = {
   "Onboarding": () => <OnboardingHome />,
-  "Stock Products": () => <div><StockProduct /></div>,
-  "Returned Products": () => <div>Returned Products Content</div>,
-  "Inventory": () => <Inventory />,
-  "Settings": () => <div>Settings Content</div>,
   "Help Center": () => <div>Help Center Content</div>,
 };
 
