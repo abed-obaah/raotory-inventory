@@ -43,7 +43,7 @@ export default function Overview({ setSelectedComponent }) {
                 </div>
 
                 {/* Summary cards section */}
-                <div className="flex gap-2 w-full flex-wrap mb-12.5 xl:justify-between">
+                <div className="flex gap-6 w-full flex-wrap mb-12.5 xl:justify-between">
                     
                     {/* Today's sales */}
                     <div 
