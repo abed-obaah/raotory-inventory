@@ -263,39 +263,9 @@ export default function DashboardLayoutOnboarding() {
                                     </li>
                                     ))}
 
-                                    {/* Products Submenu */}
-                                    <li>
-                                        <button
-                                            onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                        >
-                                            <span className="flex items-center gap-x-3">
-                                            <CgList className="size-6" /> Products
-                                            </span>
-                                            <ChevronDownIcon className={`size-5 transition-transform ${isProductsOpen ? "rotate-180" : "rotate-0"}`} />
-                                        </button>
-                                        {isProductsOpen && (
-                                            <ul className="ml-4 mt-1 space-y-1">
-                                            {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
-                                                <li key={subItem}>
-                                                <button
-                                                    onClick={() => setSelectedComponent(subItem)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === subItem
-                                                        ? "bg-blue-500 text-white"
-                                                        : "text-gray-e5e5e5 hover:bg-blue-500 hover:text-white"
-                                                    }`}
-                                                >
-                                                    {subItem}
-                                                </button>
-                                                </li>
-                                            ))}
-                                            </ul>
-                                        )}
-                                    </li>
+                                    {/* Products Submenu removed from here*/}
 
-                                    {[  { name: "Settings", icon: Cog6ToothIcon },
-                                        { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
+                                    {[  { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
                                         <li key={name}>
                                             <button
                                             onClick={() => setSelectedComponent(name)}
@@ -318,7 +288,7 @@ export default function DashboardLayoutOnboarding() {
                             <li>
                                 <ul>
                                     {/* Dark mode */}
-                                    <li className="px-2">
+                                    <li className="px-2 hidden">
                                         <a
                                             href="#"
                                             className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
