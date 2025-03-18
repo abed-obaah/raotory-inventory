@@ -36,8 +36,6 @@ import { MdDarkMode } from "react-icons/md";
 import { HiLogout } from "react-icons/hi";
 
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
-import Inventory from "../dashboard/Inventory";
-import StockProduct from "../dashboard/StockProduct";
 import OnboardingHome from "./OnboardingHome";
 
 const userNavigation = [
@@ -220,7 +218,7 @@ export default function DashboardLayoutOnboarding() {
             <div className="hidden lg:fixed lg:z-50 lg:flex lg:w-72 lg:flex-col">
                 
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4 border-r border-gray-200">
                     
                     {/* Company logo */}
                     <div className="flex h-16 shrink-0 items-center px-2">
@@ -318,7 +316,7 @@ export default function DashboardLayoutOnboarding() {
 
             {/* Dashboard main section */}
             <div className="lg:pl-72">
-                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-x border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
+                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
 
                     {/* Hamburger button (for mobile) */}
                     <button type="button" onClick={() => setSidebarOpen(true)} className="-m-2.5 p-2.5 text-gray-700 lg:hidden">
@@ -402,7 +400,7 @@ export default function DashboardLayoutOnboarding() {
                 </div>
                 
                 {/* Main content area */}
-                <main className="p-8 border-x border-black-10-percent">
+                <main className="p-8">
                     <div id="main-content-area">
                         {components[selectedComponent] ? components[selectedComponent]() : <div>Not Found</div>}
                     </div>
