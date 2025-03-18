@@ -50,7 +50,7 @@ export default function Invoice() {
                     </div>
 
                     {/* Search / View held receipts */}
-                    <div className='flex items-center gap-x-13 mb-8'>
+                    <div className='flex flex-col sm:flex-row sm:items-center gap-y-6 gap-x-13 mb-8'>
                         {/* Search */}
                         <div className="w-full">
                             <form class="flex items-center mx-auto">   
