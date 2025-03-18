@@ -16,7 +16,6 @@ import {
 import {
   Bars3Icon,
   BellIcon,
-  Cog6ToothIcon,
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -25,12 +24,6 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/20/solid";
 
-import { BiSolidDashboard } from "react-icons/bi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
-import { CgList } from "react-icons/cg";
-import { PiScroll } from "react-icons/pi";
-import { TbHistory } from "react-icons/tb";
-import { LuCircleUserRound } from "react-icons/lu";
 import { TbHelpSquareRounded } from "react-icons/tb";
 import { MdDarkMode } from "react-icons/md";
 import { HiLogout } from "react-icons/hi";
