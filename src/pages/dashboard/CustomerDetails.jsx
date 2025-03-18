@@ -34,7 +34,7 @@ export default function CustomerDetails({ setView }) {
             </div>
 
             {/* Main section */}
-            <div className="flex gap-x-8">
+            <div className="flex flex-col md:flex-row gap-y-10 gap-x-8">
                 {/* Left side */}
                 <div className="flex flex-col gap-6 min-w-[298px]">
                     {/* Details card */}
