@@ -115,7 +115,7 @@ export default function Inventory() {
         )}
 
         {/* Total products and search section */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-20 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-20 mb-10">
             <div className="whitespace-nowrap">
                 <p className="text-gray-757575 text-sm font-medium">Total Products</p>
                 <h4 id="total-products" className="text-gray-757575 text-4xl font-semibold">
