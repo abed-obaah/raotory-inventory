@@ -211,7 +211,7 @@ export default function InputOrder() {
                 {/* Success modal */}
                 {showModal && (
                     <div className='fixed inset-0 bg-gray-700/70 flex justify-center items-center'>
-                        <div className='flex flex-col items-center bg-white p-3 rounded-xl shadow-lg min-w-[400px] lg:ml-60'>
+                        <div className='flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px] lg:ml-60'>
                             <IoIosCloseCircleOutline onClick={() => setShowModal(false)} className='size-6 self-end' />
                             <div className='bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8'>
                                 <IoMdThumbsUp className='size-12 text-blue-0e90da' />
