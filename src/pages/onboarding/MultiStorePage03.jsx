@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import MultiStorePage02 from "./MultiStorePage02";
 import StoreSetupSuccess from "/src/assets/store-setup-success.png";
-// import MultiStorePage04 from "./MultiStorePage04";
+import MultiStorePage04 from "./MultiStorePage04";
 
 export default function MultiStorePage03() {
     const [view, setView] = useState("multi-store-page-03");
@@ -48,7 +48,6 @@ export default function MultiStorePage03() {
                                 {/* Button */}
                                 <div className="mb-4 mt-10">
                                     <button
-                                        disabled
                                         onClick={() => setView("multi-store-page-04")}
                                         className="flex w-full justify-center bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 font-semibold rounded-[10px] text-base p-4 text-center me-2"
                                     >
@@ -73,7 +72,7 @@ export default function MultiStorePage03() {
             )}
 
             {view === "multi-store-page-02" && <MultiStorePage02 setView={setView} />}
-            {/* {view === "multi-store-page-04" && <MultiStorePage04 setView={setView} />} */}
+            {view === "multi-store-page-04" && <MultiStorePage04 setView={setView} />}
         </>
     );
 }
