@@ -35,7 +35,7 @@ export default function PatientCaseFile({ setView }) {
             </div>
 
             {/* Main section */}
-            <div className="flex gap-x-8">
+            <div className="flex flex-col md:flex-row gap-y-10 gap-x-8">
                 {/* Left side */}
                 <div className="flex flex-col gap-6 min-w-[298px]">
                     {/* Details card */}
@@ -88,7 +88,7 @@ export default function PatientCaseFile({ setView }) {
                 {/* Right side */}
                 <div className="w-full">
                     {/* Title / filter / edit */}
-                    <div className="flex items-center justify-between mb-5">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-y-4 mb-5">
                         {/* Title */}
                         <h2 className="text-dark-primary text-[1.25rem] font-semibold">Patient's Case File</h2>
                         <div className="flex gap-2">
