@@ -47,7 +47,7 @@ export default function SettingsAddUser({ setView }) {
                     </p>
                 </div>
                 {/* Roles */}
-                <div className="flex gap-10 mb-16">
+                <div className="flex flex-col md:flex-row gap-10 mb-16">
                     {/* Manager */}
                     <div class="flex items-center gap-2 border border-black-10-percent w-max rounded-[10px] py-3 px-6">
                         <input type="checkbox" class="size-7.5 text-blue-600 bg-white border border-black-10-percent rounded-[5px] appearance-none checked:bg-blue-primary checked:border-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-300" />
