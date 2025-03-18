@@ -61,7 +61,7 @@ export default function MultiStorePage02({ setStep, storeCount }) {
                         </div>
 
                         {/* Form */}
-                        <div className="w-full border border-black-10-percent rounded-3xl p-10.5">
+                        <div className="w-full border border-black-10-percent rounded-3xl p-6 lg:p-10.5">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 {stores.map((store, index) => (
                                     <div key={index} className="space-y-4">
