@@ -11,7 +11,7 @@ export default function Overview({ setSelectedComponent }) {
             {/* Main wrapper */}
             <div>
                 {/* Day selection section */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col-reverse sm:flex-row lg:items-center justify-between gap-y-2 mb-8">
                     {/* Day dropdown */}
                     <div>
                         <div className="mt-2 grid grid-cols-1">
@@ -135,7 +135,7 @@ export default function Overview({ setSelectedComponent }) {
                 </div>
 
                 {/* Invoice section */}
-                <div className="flex gap-x-8 xl:justify-between">
+                <div className="flex flex-col lg:flex-row gap-x-8 gap-y-8 xl:justify-between">
                     {/* Left side */}
                     <div className="w-full">
                         {/* Recent invoices */}
@@ -220,7 +220,7 @@ export default function Overview({ setSelectedComponent }) {
                     {/* Right side */}
                     <div className="flex flex-col gap-y-8">
                         {/* Customers pie chart */}
-                        <div className="sm:rounded-[20px] border border-black-10-percent p-6">Pie chart goes here</div>
+                        <div className="hidden sm:rounded-[20px] border border-black-10-percent p-6">Pie chart goes here</div>
                         {/* Stock alert */}
                         <div class="relative overflow-x-auto sm:rounded-[20px] border border-black-10-percent">
                             <table class="w-full text-base text-left rtl:text-right text-blue-001b2a dark:text-blue-001b2a">
