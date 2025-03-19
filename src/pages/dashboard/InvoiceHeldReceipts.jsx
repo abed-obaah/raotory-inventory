@@ -11,7 +11,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                 {/* Left side */}
                 <div className='flex flex-col justify-between p-6'>
                     {/* Top section */}
-                    <h2 className='text-white-f8fdff text-2xl mb-4 sm:mb-0'>All Invoices</h2>
+                    <h2 className='text-white-f8fdff text-2xl mb-4 sm:mb-0'>Held Receipts</h2>
                     {/* Lower section */}
                     <div className='flex flex-col sm:flex-row sm:items-center gap-y-4 gap-x-10'>
                         {/* Begin date */}
