@@ -1,14 +1,18 @@
 import { useState } from "react";
 import InvoiceViewInvoice from "./InvoiceViewInvoice";
+import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
 
 export default function Invoice() {
     const [showViewInvoice, setShowViewInvoice] = useState(false);
+    const [showHeldReceipts, setShowHeldReceipts] = useState(false);
 
     return (
         <>
             {showViewInvoice ? (
                 <InvoiceViewInvoice onBack={() => setShowViewInvoice(false)} />
+            ) : showHeldReceipts ? (
+                <InvoiceHeldReceipts onBack={() => setShowHeldReceipts(false)} />
             ) : (
                 <div id='invoice-home'>
                     {/* Date */}
@@ -68,6 +72,7 @@ export default function Invoice() {
                         <div>
                             <button
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full whitespace-nowrap cursor-pointer"
+                                onClick={() => setShowHeldReceipts(true)} // ✅ Show Held Receipts
                             >
                                 View Held Receipts
                             </button>
