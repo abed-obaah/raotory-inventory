@@ -191,10 +191,43 @@ export default function DashboardLayout() {
                                                     </ul>
                                                 )}
                                             </li>
+
+                                            {/* Sales */}
+                                            <li>
+                                                <button
+                                                    onClick={() => setIsSalesOpen(!isSalesOpen)}
+                                                    className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                >
+                                                    <span className="flex items-center gap-x-3">
+                                                    <CgList className="size-6" /> Sales
+                                                    </span>
+                                                    <ChevronDownIcon className={`size-5 transition-transform ${isSalesOpen ? "rotate-180" : "rotate-0"}`} />
+                                                </button>
+                                                {isSalesOpen && (
+                                                    <ul className="ml-4 mt-1 space-y-1">
+                                                    {["Sales History", "Total Profit"].map((subItem) => (
+                                                        <li key={subItem}>
+                                                        <button
+                                                            onClick={() => {
+                                                                setSelectedComponent(subItem)
+                                                                setSidebarOpen(false); // Close sidebar
+                                                            }}
+                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                            selectedComponent === subItem
+                                                                ? "bg-blue-500 text-white"
+                                                                : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                            }`}
+                                                        >
+                                                            {subItem}
+                                                        </button>
+                                                        </li>
+                                                    ))}
+                                                    </ul>
+                                                )}
+                                            </li>
                                             
-                                            {/* Invoice, Sales History, Create Customer */}
+                                            {/* Invoice, Create Customer */}
                                             {[{ name: "Invoice", icon: PiScroll },
-                                                { name: "Sales History", icon: TbHistory },
                                                 { name: "Create Customer", icon: LuCircleUserRound }].map(({ name, icon: Icon }) => (
                                                 <li key={name}>
                                                     <button
