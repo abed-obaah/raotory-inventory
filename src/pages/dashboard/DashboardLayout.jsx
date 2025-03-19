@@ -66,7 +66,7 @@ export default function DashboardLayout() {
   const components = {
     //   "Overview": () => <Overview />,
       "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
-      "Input Order": () => <InputOrder />,
+      "Input Order": () => <InputOrder setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
       "Stock Products": () => <div><StockProduct /></div>,
       "Returned Products": () => <div><ReturnedProducts /></div>,
       "Inventory": () => <Inventory />,

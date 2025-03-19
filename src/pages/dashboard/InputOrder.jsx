@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoMdThumbsUp, IoIosCloseCircleOutline } from "react-icons/io";
 
-export default function InputOrder() {
+export default function InputOrder({ setSelectedComponent }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedProducts, setSelectedProducts] = useState([]);
@@ -66,6 +66,7 @@ export default function InputOrder() {
                         />
                         <button 
                             type='' 
+                            onClick={() => setSelectedComponent("Create Customer")} // Update state when clicked
                             className="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da">
                             Create customer
                         </button>
