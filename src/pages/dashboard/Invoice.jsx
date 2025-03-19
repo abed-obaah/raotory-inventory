@@ -67,7 +67,6 @@ export default function Invoice() {
                         {/* Button */}
                         <div>
                             <button
-                                onClick={() => setShowHeldReceipts(true)}
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full whitespace-nowrap cursor-pointer"
                             >
                                 View Held Receipts
@@ -107,7 +106,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowHeldReceipts(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>
@@ -131,7 +132,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowHeldReceipts(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>
@@ -155,7 +158,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowHeldReceipts(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>
