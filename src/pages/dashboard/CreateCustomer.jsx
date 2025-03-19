@@ -53,7 +53,10 @@ export default function CreateCustomer() {
                             <tbody>
                                 <tr className="bg-white border border-gray-300 mb-5 rounded-[10px] grid grid-cols-6">
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold rounded-l-2xl col-span-2">
-                                        <div className="flex items-center gap-2">
+                                        <div 
+                                            onClick={() => setView("customer-details")}
+                                            className="flex items-center gap-2 cursor-pointer"
+                                        >
                                             <div className="flex justify-center items-center text-white bg-blue-400 rounded size-7.5">A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
@@ -65,7 +68,6 @@ export default function CreateCustomer() {
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">Abraka, Delta State</td>
                                     <td className="px-2.5 py-2 flex items-center gap-2.5">
                                         <button
-                                            onClick={() => setView("customer-details")}
                                             className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer"
                                         >
                                             Modify
