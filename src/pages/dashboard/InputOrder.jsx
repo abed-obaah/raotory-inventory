@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoMdThumbsUp, IoIosCloseCircleOutline } from "react-icons/io";
+import { createPortal } from "react-dom";
 
 export default function InputOrder({ setSelectedComponent }) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -212,26 +213,27 @@ export default function InputOrder({ setSelectedComponent }) {
                 </div>
 
                 {/* Success modal */}
-                {showModal && (
-                    <div className='fixed inset-0 bg-gray-700/70 flex justify-center items-center'>
-                        <div className='flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px] lg:ml-60'>
-                            <IoIosCloseCircleOutline onClick={() => setShowModal(false)} className='size-6 self-end' />
-                            <div className='bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8'>
-                                <IoMdThumbsUp className='size-12 text-blue-0e90da' />
+                {showModal &&
+                    createPortal(
+                        <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
+                            <div className="flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px]">
+                                <IoIosCloseCircleOutline onClick={() => setShowModal(false)} className="size-6 self-end cursor-pointer" />
+                                <div className="bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8">
+                                    <IoMdThumbsUp className="size-12 text-blue-0e90da" />
+                                </div>
+                                <h2 className="text-xl text-gray-757575 font-bold mb-8">Saved Successfully</h2>
+                                <div className="flex gap-6 mb-6">
+                                    <button className="text-gray-757575 hover:text-white bg-white border border-black-10-percent hover:border-blue-0e90da hover:bg-blue-0e90da rounded-[10px] text-base font-semibold px-5 py-2">
+                                        View Invoice
+                                    </button>
+                                    <button className="text-white bg-blue-primary hover:bg-blue-0e90da rounded-[10px] text-base font-semibold px-5 py-2">
+                                        Print Receipt
+                                    </button>
+                                </div>
                             </div>
-                            <h2 className='text-xl text-gray-757575 font-bold mb-8'>Saved Successfully</h2>
-                            {/* Buttons */}
-                            <div className='flex gap-6 mb-6'>
-                                <button type="" class="text-gray-757575 hover:text-white bg-white border border-black-10-percent hover:border-blue-0e90da hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-base font-semibold px-5 py-2">
-                                    View Invoice
-                                </button>
-                                <button type="" class="text-white bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-base font-semibold px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da">
-                                    Print Receipt
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                        </div>,
+                        document.body
+                    )}
             </div>
         </>
     )
