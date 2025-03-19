@@ -19,7 +19,7 @@ export default function Overview({ setSelectedComponent }) {
                                 id="location"
                                 name="location"
                                 defaultValue="Today"
-                                className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300"
                                 >
                                     <option selected>Today</option>
                                     <option>Yesterday</option>
