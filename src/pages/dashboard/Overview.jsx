@@ -48,8 +48,8 @@ export default function Overview({ setSelectedComponent }) {
                     {/* Today's sales */}
                     <div 
                         id="todays-sales" 
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Sales History")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#E7F8FC] size-15 rounded-full mb-7.5">
                             <GoGraph className="size-4" />
@@ -70,8 +70,8 @@ export default function Overview({ setSelectedComponent }) {
                     {/* No. of invoices issued */}
                     <div 
                         id="no-of-invoices"
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Invoice")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#F0E8FC] size-15 rounded-full mb-7.5">
                             <BsCalendar3 className="size-4" />
@@ -90,7 +90,11 @@ export default function Overview({ setSelectedComponent }) {
                     </div>
 
                     {/* Profit made */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl">
+                    <div 
+                        id="profit-made"
+                        onClick={() => setSelectedComponent("Total Profit")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
+                    >
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BiDollar className="size-4" />
                         </div>
@@ -110,8 +114,8 @@ export default function Overview({ setSelectedComponent }) {
                     {/* No. of products sold */}
                     <div 
                         id="no-of-products-sold"
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Inventory")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BsBag className="size-4" />

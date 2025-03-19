@@ -64,7 +64,9 @@ export default function InputOrder() {
                             class="block w-full p-4 ps-4 text-base text-blue-001b2a border border-black-10-percent rounded-[10px] bg-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-white dark:border-black-10-percent dark:placeholder-gray-757575" 
                             placeholder="Select customer" 
                         />
-                        <button type="" class="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 min-w-[] dark:bg-blue-primary dark:hover:bg-blue-0e90da">
+                        <button 
+                            type='' 
+                            className="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da">
                             Create customer
                         </button>
                     </div>
