@@ -1,14 +1,14 @@
 import { useState } from "react";
-import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
+import InvoiceViewInvoice from "./InvoiceViewInvoice";
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
 
 export default function Invoice() {
-    const [showHeldReceipts, setShowHeldReceipts] = useState(false);
+    const [showViewInvoice, setShowViewInvoice] = useState(false);
 
     return (
         <>
-            {showHeldReceipts ? (
-                <InvoiceHeldReceipts onBack={() => setShowHeldReceipts(false)} />
+            {showViewInvoice ? (
+                <InvoiceViewInvoice onBack={() => setShowViewInvoice(false)} />
             ) : (
                 <div id='invoice-home'>
                     {/* Date */}
@@ -107,7 +107,7 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowHeldReceipts(true)}
+                                            onClick={() => setShowViewInvoice(true)}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
@@ -133,7 +133,7 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowHeldReceipts(true)}
+                                            onClick={() => setShowViewInvoice(true)}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
@@ -159,7 +159,7 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowHeldReceipts(true)}
+                                            onClick={() => setShowViewInvoice(true)}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>

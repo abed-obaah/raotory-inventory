@@ -2,9 +2,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import { HiOutlineInboxArrowDown } from "react-icons/hi2";
 import { BsPrinter } from "react-icons/bs";
 
-export default function InvoiceHeldReceipts({ onBack }) {
+export default function InvoiceViewInvoice({ onBack }) {
     return (
-        <div id='invoice-held-receipts'>
+        <div id='invoice-view-invoice'>
 
             {/* Back Button */}
             <button 
