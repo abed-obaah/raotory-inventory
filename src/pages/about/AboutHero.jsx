@@ -31,7 +31,7 @@ export default function AboutHero() {
             <div className='flex mt-10'>
                 <button
                     onClick={handleGetStarted}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4.5 md:px-11 py-3 md:py-4 rounded-full font-semibold transition cursor-pointer"
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full font-semibold transition cursor-pointer w-full sm:w-max"
                 >
                     Try Raotory Now!
                 </button>

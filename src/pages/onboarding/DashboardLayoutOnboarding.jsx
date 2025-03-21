@@ -16,7 +16,6 @@ import {
 import {
   Bars3Icon,
   BellIcon,
-  Cog6ToothIcon,
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -25,20 +24,11 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/20/solid";
 
-import { BiSolidDashboard } from "react-icons/bi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
-import { CgList } from "react-icons/cg";
-import { PiScroll } from "react-icons/pi";
-import { TbHistory } from "react-icons/tb";
-import { LuCircleUserRound } from "react-icons/lu";
 import { TbHelpSquareRounded } from "react-icons/tb";
 import { MdDarkMode } from "react-icons/md";
 import { HiLogout } from "react-icons/hi";
-
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
-import Inventory from "../dashboard/Inventory";
-import OnboardingFlow from "./OnboardingFlow";
-import StockProduct from "../dashboard/StockProduct";
+import OnboardingHome from "./OnboardingHome";
 
 const userNavigation = [
   { name: "Store Name 01", href: "#" },
@@ -47,12 +37,8 @@ const userNavigation = [
 ];
 
 const components = {
-  "Onboarding": () => <OnboardingFlow />,
-  "Stock Products": () => <div><StockProduct /></div>,
-  "Returned Products": () => <div>Returned Products Content</div>,
-  "Inventory": () => <Inventory />,
-  "Settings": () => <div>Settings Content</div>,
-  "Help Center": () => <div>Help Center Content</div>,
+  "Onboarding": () => <OnboardingHome />,
+  "Help Center": () => <div>Help Center coming soon.</div>,
 };
 
 export default function DashboardLayoutOnboarding() {
@@ -113,70 +99,41 @@ export default function DashboardLayoutOnboarding() {
                                         <ul className="space-y-1">
                                             {[
                                             { name: "Onboarding", icon: HomeIcon },
-                                            { name: "Overview", icon: BiSolidDashboard },
-                                            { name: "Input Order", icon: HiOutlineShoppingCart },
 
                                             ].map(({ name, icon: Icon }) => (
                                             <li key={name}>
                                                 <button
-                                                onClick={() => setSelectedComponent(name)}
-                                                className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === name
-                                                    ? "bg-blue-500 text-white"
-                                                    : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                }`}
-                                                >
-                                                <Icon className="size-6" /> {name}
-                                                </button>
-                                            </li>
-                                            ))}
-
-                                            {/* Products Submenu */}
-                                            <li>
-                                                <button
-                                                    onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                                    className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                >
-                                                    <span className="flex items-center gap-x-3">
-                                                    <CgList className="size-6" /> Products
-                                                    </span>
-                                                    <ChevronDownIcon className={`size-5 transition-transform ${isProductsOpen ? "rotate-180" : "rotate-0"}`} />
-                                                </button>
-                                                {isProductsOpen && (
-                                                    <ul className="ml-4 mt-1 space-y-1">
-                                                    {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
-                                                        <li key={subItem}>
-                                                        <button
-                                                            onClick={() => setSelectedComponent(subItem)}
-                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                            selectedComponent === subItem
-                                                                ? "bg-blue-500 text-white"
-                                                                : "text-gray-700 hover:bg-blue-500 hover:text-white"
-                                                            }`}
-                                                        >
-                                                            {subItem}
-                                                        </button>
-                                                        </li>
-                                                    ))}
-                                                    </ul>
-                                                )}
-                                            </li>
-
-                                            {[{ name: "Invoice", icon: PiScroll },
-                                                { name: "Sales History", icon: TbHistory },
-                                                { name: "Create Customer", icon: LuCircleUserRound },
-                                                { name: "Settings", icon: Cog6ToothIcon },
-                                                { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
-                                                <li key={name}>
-                                                    <button
-                                                    onClick={() => setSelectedComponent(name)}
+                                                    onClick={() => {
+                                                        setSelectedComponent(name);
+                                                        setSidebarOpen(false); // Close sidebar
+                                                    }}
                                                     className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
                                                         selectedComponent === name
                                                         ? "bg-blue-500 text-white"
                                                         : "text-gray-700 hover:bg-blue-500 hover:text-white"
                                                     }`}
-                                                    >
+                                                >
                                                     <Icon className="size-6" /> {name}
+                                                </button>
+                                            </li>
+                                            ))}
+
+                                            {/* Products Submenu removed from here*/}
+
+                                            {[  { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
+                                                <li key={name}>
+                                                    <button
+                                                        onClick={() => {
+                                                            setSelectedComponent(name)
+                                                            setSidebarOpen(false); // Close sidebar
+                                                        }}
+                                                        className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                            selectedComponent === name
+                                                            ? "bg-blue-500 text-white"
+                                                            : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                                        }`}
+                                                    >
+                                                        <Icon className="size-6" /> {name}
                                                     </button>
                                                 </li>
                                             ))}
@@ -186,9 +143,10 @@ export default function DashboardLayoutOnboarding() {
                                     {/* Middle sidebar menu - mobile - removed from here*/}
                                     
                                     {/* Bottom sidebar menu - mobile */}
-                                    <li className="mt-auto">
-                                        <ul className="">
-                                            <li className="px-2">
+                                    <li>
+                                        <ul>
+                                            {/* Dark mode */}
+                                            <li className="px-2 hidden">
                                                 <a
                                                     href="#"
                                                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
@@ -200,17 +158,18 @@ export default function DashboardLayoutOnboarding() {
                                                     Dark Mode
                                                 </a>
                                             </li>
+                                            {/* Logout */}
                                             <li className="px-2">
-                                                <a
-                                                    href="#"
-                                                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
+                                                <button
+                                                    onClick={() => dispatch(logout())}
+                                                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 cursor-pointer hover:bg-blue-29a8f1 hover:text-white"
                                                 >
                                                     <HiLogout
                                                         aria-hidden="true"
                                                         className="size-6 shrink-0 text-gray-757575 group-hover:text-white"
                                                     />
                                                     Logout
-                                                </a>
+                                                </button>
                                             </li>
                                         </ul>
                                     </li>
@@ -225,7 +184,7 @@ export default function DashboardLayoutOnboarding() {
             <div className="hidden lg:fixed lg:z-50 lg:flex lg:w-72 lg:flex-col">
                 
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4 border-r border-gray-200">
                     
                     {/* Company logo */}
                     <div className="flex h-16 shrink-0 items-center px-2">
@@ -264,39 +223,9 @@ export default function DashboardLayoutOnboarding() {
                                     </li>
                                     ))}
 
-                                    {/* Products Submenu */}
-                                    <li>
-                                        <button
-                                            onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
-                                        >
-                                            <span className="flex items-center gap-x-3">
-                                            <CgList className="size-6" /> Products
-                                            </span>
-                                            <ChevronDownIcon className={`size-5 transition-transform ${isProductsOpen ? "rotate-180" : "rotate-0"}`} />
-                                        </button>
-                                        {isProductsOpen && (
-                                            <ul className="ml-4 mt-1 space-y-1">
-                                            {["Stock Products", "Returned Products", "Inventory"].map((subItem) => (
-                                                <li key={subItem}>
-                                                <button
-                                                    onClick={() => setSelectedComponent(subItem)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
-                                                    selectedComponent === subItem
-                                                        ? "bg-blue-500 text-white"
-                                                        : "text-gray-e5e5e5 hover:bg-blue-500 hover:text-white"
-                                                    }`}
-                                                >
-                                                    {subItem}
-                                                </button>
-                                                </li>
-                                            ))}
-                                            </ul>
-                                        )}
-                                    </li>
+                                    {/* Products Submenu removed from here*/}
 
-                                    {[  { name: "Settings", icon: Cog6ToothIcon },
-                                        { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
+                                    {[  { name: "Help Center", icon: TbHelpSquareRounded }].map(({ name, icon: Icon }) => (
                                         <li key={name}>
                                             <button
                                             onClick={() => setSelectedComponent(name)}
@@ -319,7 +248,7 @@ export default function DashboardLayoutOnboarding() {
                             <li>
                                 <ul>
                                     {/* Dark mode */}
-                                    <li className="px-2">
+                                    <li className="px-2 hidden">
                                         <a
                                             href="#"
                                             className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-757575 hover:bg-blue-29a8f1 hover:text-white"
@@ -353,7 +282,7 @@ export default function DashboardLayoutOnboarding() {
 
             {/* Dashboard main section */}
             <div className="lg:pl-72">
-                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-x border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
+                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
 
                     {/* Hamburger button (for mobile) */}
                     <button type="button" onClick={() => setSidebarOpen(true)} className="-m-2.5 p-2.5 text-gray-700 lg:hidden">
@@ -437,7 +366,7 @@ export default function DashboardLayoutOnboarding() {
                 </div>
                 
                 {/* Main content area */}
-                <main className="p-8 border-x border-black-10-percent">
+                <main className="p-8">
                     <div id="main-content-area">
                         {components[selectedComponent] ? components[selectedComponent]() : <div>Not Found</div>}
                     </div>

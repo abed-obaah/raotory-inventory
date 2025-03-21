@@ -4,8 +4,9 @@ import { registerUser } from "../../api/authApi";
 import { loginStart, registerSuccess, loginFailure } from "../../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
+
+
 
 export default function Register() {
     const [fullName, setFullName] = useState("");

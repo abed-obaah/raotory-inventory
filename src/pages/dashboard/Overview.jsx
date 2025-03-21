@@ -11,7 +11,7 @@ export default function Overview({ setSelectedComponent }) {
             {/* Main wrapper */}
             <div>
                 {/* Day selection section */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col-reverse sm:flex-row lg:items-center justify-between gap-y-2 mb-8">
                     {/* Day dropdown */}
                     <div>
                         <div className="mt-2 grid grid-cols-1">
@@ -19,7 +19,7 @@ export default function Overview({ setSelectedComponent }) {
                                 id="location"
                                 name="location"
                                 defaultValue="Today"
-                                className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300"
                                 >
                                     <option selected>Today</option>
                                     <option>Yesterday</option>
@@ -43,13 +43,13 @@ export default function Overview({ setSelectedComponent }) {
                 </div>
 
                 {/* Summary cards section */}
-                <div className="flex gap-2 w-full flex-wrap mb-12.5 xl:justify-between">
+                <div className="flex gap-6 w-full flex-wrap mb-12.5 xl:justify-between">
                     
                     {/* Today's sales */}
                     <div 
                         id="todays-sales" 
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Sales History")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#E7F8FC] size-15 rounded-full mb-7.5">
                             <GoGraph className="size-4" />
@@ -70,8 +70,8 @@ export default function Overview({ setSelectedComponent }) {
                     {/* No. of invoices issued */}
                     <div 
                         id="no-of-invoices"
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Invoice")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#F0E8FC] size-15 rounded-full mb-7.5">
                             <BsCalendar3 className="size-4" />
@@ -90,7 +90,11 @@ export default function Overview({ setSelectedComponent }) {
                     </div>
 
                     {/* Profit made */}
-                    <div className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl">
+                    <div 
+                        id="profit-made"
+                        onClick={() => setSelectedComponent("Total Profit")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
+                    >
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BiDollar className="size-4" />
                         </div>
@@ -110,8 +114,8 @@ export default function Overview({ setSelectedComponent }) {
                     {/* No. of products sold */}
                     <div 
                         id="no-of-products-sold"
-                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                         onClick={() => setSelectedComponent("Inventory")} // Update state when clicked
+                        className="border border-black-10-percent rounded-[20px] p-5 w-max shrink-0 hover:shadow-2xl cursor-pointer"
                     >
                         <div className="flex items-center justify-center bg-[#FCF3EC] size-15 rounded-full mb-7.5">
                             <BsBag className="size-4" />
@@ -131,7 +135,7 @@ export default function Overview({ setSelectedComponent }) {
                 </div>
 
                 {/* Invoice section */}
-                <div className="flex gap-x-8 xl:justify-between">
+                <div className="flex flex-col lg:flex-row gap-x-8 gap-y-8 xl:justify-between">
                     {/* Left side */}
                     <div className="w-full">
                         {/* Recent invoices */}
@@ -216,7 +220,7 @@ export default function Overview({ setSelectedComponent }) {
                     {/* Right side */}
                     <div className="flex flex-col gap-y-8">
                         {/* Customers pie chart */}
-                        <div className="sm:rounded-[20px] border border-black-10-percent p-6">Pie chart goes here</div>
+                        <div className="hidden sm:rounded-[20px] border border-black-10-percent p-6">Pie chart goes here</div>
                         {/* Stock alert */}
                         <div class="relative overflow-x-auto sm:rounded-[20px] border border-black-10-percent">
                             <table class="w-full text-base text-left rtl:text-right text-blue-001b2a dark:text-blue-001b2a">

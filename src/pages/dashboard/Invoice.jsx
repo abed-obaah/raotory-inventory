@@ -1,13 +1,17 @@
 import { useState } from "react";
+import InvoiceViewInvoice from "./InvoiceViewInvoice";
 import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
 
 export default function Invoice() {
+    const [showViewInvoice, setShowViewInvoice] = useState(false);
     const [showHeldReceipts, setShowHeldReceipts] = useState(false);
 
     return (
         <>
-            {showHeldReceipts ? (
+            {showViewInvoice ? (
+                <InvoiceViewInvoice onBack={() => setShowViewInvoice(false)} />
+            ) : showHeldReceipts ? (
                 <InvoiceHeldReceipts onBack={() => setShowHeldReceipts(false)} />
             ) : (
                 <div id='invoice-home'>
@@ -15,22 +19,22 @@ export default function Invoice() {
                     <p className="text-[10px] text-gray-757575 font-semibold mb-2 text-right">18th March 2024</p>
 
                     {/* Hero */}
-                    <div className='flex justify-between bg-blue-0e90da rounded-[10px] min-h-[164px] mb-8'>
+                    <div className='flex flex-col sm:flex-row justify-between bg-blue-0e90da rounded-[10px] min-h-[164px] mb-8'>
                         {/* Left side */}
                         <div className='flex flex-col justify-between p-6'>
                             {/* Top section */}
-                            <h2 className='text-white-f8fdff text-2xl'>All Invoices</h2>
+                            <h2 className='text-white-f8fdff text-2xl mb-4 sm:mb-0'>All Invoices</h2>
                             {/* Lower section */}
-                            <div className='flex items-center gap-x-10'>
+                            <div className='flex flex-col sm:flex-row sm:items-center gap-y-4 gap-x-10'>
                                 {/* Begin date */}
                                 <div>
                                     <p className="text-white-f8fdff text-xs font-semibold mb-1">Begin Date</p>
-                                    <input type="date" className="bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
+                                    <input type="date" className="w-full sm:w-auto bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
                                 </div>
                                 {/* End date */}
                                 <div>
                                     <p className="text-white-f8fdff text-xs font-semibold mb-1">End Date</p>
-                                    <input type="date" className="bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
+                                    <input type="date" className="w-full sm:w-auto bg-white-f8fdff rounded-[5px] text-xs text-gray-757575 font-semibold p-2.5 focus:outline-none focus:ring-4 focus:ring-blue-300" />
                                 </div>
                                 {/* Status */}
                                 <form class="">
@@ -44,13 +48,13 @@ export default function Invoice() {
                             </div>
                         </div>
                         {/* Right side */}
-                        <div className='flex items-end pr-13.5'>
+                        <div className='hidden xl:flex items-end pr-13.5'>
                             <img src={InvoiceHeroImage} alt="Image of an invoice" className='w-full max-w-[300px] h-auto max-h-[145px] object-cover' />
                         </div>
                     </div>
 
                     {/* Search / View held receipts */}
-                    <div className='flex items-center gap-x-13 mb-8'>
+                    <div className='flex flex-col sm:flex-row sm:items-center gap-y-6 gap-x-13 mb-8'>
                         {/* Search */}
                         <div className="w-full">
                             <form class="flex items-center mx-auto">   
@@ -67,8 +71,8 @@ export default function Invoice() {
                         {/* Button */}
                         <div>
                             <button
-                                onClick={() => setShowHeldReceipts(true)}
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full whitespace-nowrap cursor-pointer"
+                                onClick={() => setShowHeldReceipts(true)} // ✅ Show Held Receipts
                             >
                                 View Held Receipts
                             </button>
@@ -107,7 +111,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowViewInvoice(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>
@@ -131,7 +137,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowViewInvoice(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>
@@ -155,7 +163,9 @@ export default function Invoice() {
                                         </div>
                                     </td>
                                     <td className="px-2.5 py-2">
-                                        <button className="bg-blue-primary text-white px-8 py-1 rounded w-max">
+                                        <button 
+                                            onClick={() => setShowViewInvoice(true)}
+                                            className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
                                     </td>

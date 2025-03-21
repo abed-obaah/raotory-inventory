@@ -1,16 +1,16 @@
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export default function ReturnedProducts() {
+export default function TotalProfit() {
     return (
         <>
             <div className="flex flex-col">
                 {/* Upper section */}
-                <div className="flex flex-col sm:flex-row sm:items-end gap-y-4 gap-x-8 mb-13">
+                <div className="flex flex-col sm:flex-row sm:items-end gap-y-6 gap-x-8 mb-13">
                     {/* Total */}
                     <div className="whitespace-nowrap">
-                        <p className="text-gray-757575 text-base font-medium">Total Amount</p>
+                        <p className="text-gray-757575 text-base font-medium">January Profit Made</p>
                         <h4 className="text-gray-757575 text-2xl font-bold">
-                            000,000,000
+                            <span>NGN</span>238,908.00
                         </h4>
                     </div>
                     {/* Search */}
@@ -22,7 +22,7 @@ export default function ReturnedProducts() {
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
                                 </div>
-                                <input type="text" id="voice-search" class="bg-white border border-black-10-percent text-gray-757575 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-gray-b4b4b4  dark:bg-white dark:border-black-10-percent dark:placeholder-gray-b4b4b4 dark:text-gray-757575 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search product, cashier" />
+                                <input type="text" id="voice-search" class="bg-white border border-black-10-percent text-gray-757575 text-sm rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 block w-full ps-10 p-2.5 placeholder-gray-b4b4b4 dark:bg-white dark:border-black-10-percent dark:placeholder-gray-b4b4b4 dark:text-gray-757575 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search product, cashier" />
                             </div>
                         </form>
                     </div>
@@ -49,81 +49,81 @@ export default function ReturnedProducts() {
                                 <tr>
                                     <th className="px-2.5 py-3 border-r">S/N</th>
                                     <th className="px-2.5 py-3 border-r">Product Name</th>
-                                    <th className="px-2.5 py-3 border-r">Cashier</th>
-                                    <th className="px-2.5 py-3 border-r">Quantity</th>
-                                    <th className="px-2.5 py-3 border-r">Invoice No.</th>
-                                    <th className="px-2.5 py-3 border-r">Amount</th>
-                                    <th className="px-2.5 py-3">Time</th>
+                                    <th className="px-2.5 py-3 border-r">Total Cost</th>
+                                    <th className="px-2.5 py-3 border-r">Quantity Stocked</th>
+                                    <th className="px-2.5 py-3 border-r">Quantity Sold</th>
+                                    <th className="px-2.5 py-3 border-r">Amount Sold</th>
+                                    <th className="px-2.5 py-3">Profit Made</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr className="bg-white hover:bg-gray-100">
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         01
                                     </td>
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         Paracetamol
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        Nurse Stella
+                                        ₦200,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        2
+                                        67,973
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        ABZ-08645
+                                        45,884
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        NGN 1,500
+                                        ₦145,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        1:05 PM
+                                        ₦54,000
                                     </td>
                                 </tr>
                                 <tr className="bg-white hover:bg-gray-100">
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         01
                                     </td>
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         Paracetamol
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        Nurse Stella
+                                        ₦200,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        2
+                                        67,973
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        ABZ-08645
+                                        45,884
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        NGN 1,500
+                                        ₦145,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        1:05 PM
+                                        ₦54,000
                                     </td>
                                 </tr>
                                 <tr className="bg-white hover:bg-gray-100">
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         01
                                     </td>
-                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575 text-right">
+                                    <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
                                         Paracetamol
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        Nurse Stella
+                                        ₦200,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        2
+                                        67,973
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        ABZ-08645
+                                        45,884
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        NGN 1,500
+                                        ₦145,000
                                     </td>
                                     <td className="px-2.5 py-2 border-r border-black-10-percent text-gray-757575">
-                                        1:05 PM
+                                        ₦54,000
                                     </td>
                                 </tr>
                             </tbody>

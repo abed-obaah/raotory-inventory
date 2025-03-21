@@ -53,10 +53,10 @@ export default function StockProducts() {
 
     return (
         <>
-            <div className="flex gap-x-5">
+            <div className="flex flex-col md:flex-row gap-y-10 gap-x-5">
                 {/* New product */}
-                <div className="w-[65%]">
-                    <form onSubmit={addProduct} className="space-y-5">
+                <div className="md:w-[65%]">
+                    <form onSubmit={addProduct} className="space-y-3 md:space-y-5">
                         {Object.keys(newProduct).map((key) => (
                             <div key={key}>
                                 <label className="block text-sm text-gray-700">{key.replace(/([A-Z])/g, ' $1').trim()}</label>
@@ -74,7 +74,7 @@ export default function StockProducts() {
                     </form>
                 </div>
                 {/* Selected products */}
-                <div className="w-[35%]">
+                <div className="md:w-[35%]">
                     <div className="overflow-x-auto border border-gray-300 rounded-lg">
                         <table className="w-full text-base text-left">
                             <caption>

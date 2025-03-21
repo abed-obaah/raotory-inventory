@@ -5,7 +5,7 @@ export default function SalesHistory() {
         <>
             <div className="flex flex-col">
                 {/* Upper section */}
-                <div className="flex items-end gap-x-8 mb-13">
+                <div className="flex flex-col sm:flex-row sm:items-end gap-y-6 gap-x-8 mb-13">
                     {/* Total */}
                     <div className="whitespace-nowrap">
                         <p className="text-gray-757575 text-base font-medium">Total Amount</p>

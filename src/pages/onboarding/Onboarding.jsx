@@ -3,7 +3,7 @@ import DashboardLayoutOnboarding from "./DashboardLayoutOnboarding";
 export default function Onboarding() {
     return (
         <main>
-            {/* Dashboard layout onboarding */}
+            {/* Onboarding dashboard layout */}
             <DashboardLayoutOnboarding />
         </main>
     )

@@ -13,9 +13,9 @@ export default function CreateCustomer() {
             {view === "create-customer" && (
                 <div id="create-customer">
                     {/* Search customer / create customer */}
-                    <div className="flex items-center justify-between mb-12.5">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-y-6 mb-12.5">
                         {/* Search customer */}
-                        <div className="w-full max-w-[340px]">
+                        <div className="w-full sm:max-w-[340px]">
                             <form className="flex items-center mx-auto">
                                 <div className="relative w-full">
                                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -28,7 +28,7 @@ export default function CreateCustomer() {
                             </form>
                         </div>
                         {/* Create customer */}
-                        <div className="w-full max-w-[340px]">
+                        <div className="w-full sm:max-w-[340px]">
                             <button
                                 onClick={() => setView("create-new-customer")}
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full cursor-pointer"
@@ -53,7 +53,10 @@ export default function CreateCustomer() {
                             <tbody>
                                 <tr className="bg-white border border-gray-300 mb-5 rounded-[10px] grid grid-cols-6">
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold rounded-l-2xl col-span-2">
-                                        <div className="flex items-center gap-2">
+                                        <div 
+                                            onClick={() => setView("customer-details")}
+                                            className="flex items-center gap-2 cursor-pointer"
+                                        >
                                             <div className="flex justify-center items-center text-white bg-blue-400 rounded size-7.5">A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
@@ -65,7 +68,6 @@ export default function CreateCustomer() {
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">Abraka, Delta State</td>
                                     <td className="px-2.5 py-2 flex items-center gap-2.5">
                                         <button
-                                            onClick={() => setView("customer-details")}
                                             className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer"
                                         >
                                             Modify

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { verifyOTP } from "../../api/authApi";
-import { registerSuccess } from "../../redux/authSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function OtpVerification() {
@@ -24,8 +23,8 @@ export default function OtpVerification() {
                 return; // Stop execution, don't navigate
             }
 
-            dispatch(registerSuccess(data)); // Save user state
-            navigate("/dashboard"); // Redirect after successful verification
+            // Navigate to set password page instead of dashboard
+            navigate("/set-password", { state: { email } });
         } catch (err) {
             console.error("OTP Verification error:", err);
             setError("Something went wrong. Please try again."); // Generic error message
@@ -45,6 +44,7 @@ export default function OtpVerification() {
                         Please enter the 6 digit code sent to the email provided during registration.
                     </p>
                 </div>
+
                 {/* Form */}
                 <div className="w-full">
                     <form onSubmit={handleVerifyOtp} className="space-y-52">

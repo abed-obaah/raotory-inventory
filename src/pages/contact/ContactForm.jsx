@@ -72,9 +72,9 @@ const ContactForm = () => {
         {/* Section wrapper */}
         <div className="max-w-[1200px]">
           {/* Heading */}
-          <div className="mb-6 xl:mb-8 text-center px-20">
-            <h2 className="text-7xl text-blue-0e90da font-bold mb-5.5">Say hello to us</h2>
-            <p className="text-3xl text-gray-757575 font-medium">We're ready to help you with any challenge you may be experiencing on the platform. We're available to help.</p>
+          <div className="mb-6 xl:mb-8 text-center lg:px-20">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl text-blue-0e90da font-bold mb-5.5">Say hello to us</h2>
+            <p className="text-lg md:text-2xl lg:text-3xl text-gray-757575 font-medium">We're ready to help you with any challenge you may be experiencing on the platform. We're available to help.</p>
           </div>
 
           {/* Contact form */}

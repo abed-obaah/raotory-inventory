@@ -6,7 +6,10 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Account from "./pages/account/Account";
 import Register from "./pages/auth/Register";
+import  ForgotPasswordScreen from "./pages/forgotPassword/index";
+import  SetPasswordScreen from "./pages/forgotPassword/SetPassword";
 import OtpVerification from "./pages/auth/OtpVerification";
+import OtpVerificationReset from "./pages/forgotPassword/OtpVerification";
 import Login from "./pages/auth/Login";
 import Onboarding from './pages/onboarding/Onboarding';
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -22,7 +25,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/account/*" element={<Account />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
+        <Route path="/set-password" element={<SetPasswordScreen />} />
         <Route path="/verify-otp" element={<OtpVerification />} />
+        <Route path="/reset-otp" element={<OtpVerificationReset />} />
         <Route path="/login" element={<Login />} />
 
         {/* Protected routes */}
