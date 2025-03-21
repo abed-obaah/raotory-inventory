@@ -3,25 +3,29 @@ import InvoiceViewInvoice from "./InvoiceViewInvoice";
 import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
 import CustomerDetails from "./CustomerDetails";
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
+import PatientCaseFile from "./PatientCaseFile";
 
 export default function Invoice() {
-    const [showViewInvoice, setShowViewInvoice] = useState(false);
-    const [showHeldReceipts, setShowHeldReceipts] = useState(false);
-    const [showCustomerDetails, setShowCustomerDetails] = useState(false);
+    // const [showViewInvoice, setShowViewInvoice] = useState(false);
+    // const [showHeldReceipts, setShowHeldReceipts] = useState(false);
+    // const [showCustomerDetails, setShowCustomerDetails] = useState(false);
+    const [currentView, setCurrentView] = useState("home");
 
     return (
         <>
-            {showViewInvoice ? (
-                <InvoiceViewInvoice onBack={() => setShowViewInvoice(false)} />
-            ) : showHeldReceipts ? (
-                <InvoiceHeldReceipts onBack={() => setShowHeldReceipts(false)} />
-            ) : showCustomerDetails ? (
-                <CustomerDetails />
+            {currentView === "view-invoice" ? (
+                <InvoiceViewInvoice onBack={() => setCurrentView("home")} />
+            ) : currentView === "held-receipts" ? (
+                <InvoiceHeldReceipts onBack={() => setCurrentView("home")} />
+            ) : currentView === "customer-details" ? (
+                <CustomerDetails setView={setCurrentView} />
+            ) : currentView === "patient-case-file" ? (
+                <PatientCaseFile setView={setCurrentView} />
             ) : (
                 <div id='invoice-home'>
                     {/* Date */}
                     <p className="text-[10px] text-gray-757575 font-semibold mb-2 text-right">18th March 2024</p>
-
+ 
                     {/* Hero */}
                     <div className='flex flex-col sm:flex-row justify-between bg-blue-0e90da rounded-[10px] min-h-[164px] mb-8'>
                         {/* Left side */}
@@ -55,7 +59,7 @@ export default function Invoice() {
                         <div className='hidden xl:flex items-end pr-13.5'>
                             <img src={InvoiceHeroImage} alt="Image of an invoice" className='w-full max-w-[300px] h-auto max-h-[145px] object-cover' />
                         </div>
-                    </div>
+                    </div>                   
 
                     {/* Search / View held receipts */}
                     <div className='flex flex-col sm:flex-row sm:items-center gap-y-6 gap-x-13 mb-8'>
@@ -76,7 +80,7 @@ export default function Invoice() {
                         <div>
                             <button
                                 className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full whitespace-nowrap cursor-pointer"
-                                onClick={() => setShowHeldReceipts(true)} // ✅ Show Held Receipts
+                                onClick={() => setCurrentView("held-receipts")}
                             >
                                 View Held Receipts
                             </button>
@@ -99,7 +103,7 @@ export default function Invoice() {
                                 <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
                                     <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
                                         <div 
-                                            onClick={() => setShowCustomerDetails(true)}
+                                            onClick={() => setCurrentView("customer-details")}
                                             className="flex items-center gap-2 cursor-pointer"
                                         >
                                             <div className="flex justify-center items-center text-white bg-blue-400 rounded size-7.5">A</div>
@@ -119,7 +123,7 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowViewInvoice(true)}
+                                            onClick={() => setCurrentView("view-invoice")}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
@@ -181,5 +185,5 @@ export default function Invoice() {
                 </div>
             )}
         </>
-    );
+    );    
 }
