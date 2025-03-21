@@ -26,7 +26,7 @@ export default function InvoiceViewInvoice({ onBack }) {
                         Paid
                     </div>
                     <h3 className="text-2xl text-white-f8fdff font-semibold">Jeremiah Omonefe</h3>
-                    <p className="text-white-f8fdff text-[13px] font-medium">INVOICE NUMBER: #<span>234650</span></p>
+                    <p className="text-white-f8fdff text-[13px] font-medium">INVOICE NUMBER: #<span>2022345</span></p>
                     <p className="text-white-f8fdff text-[13px] font-medium">Abraka, Delta State</p>
                 </div>
 

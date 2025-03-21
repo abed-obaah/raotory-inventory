@@ -4,7 +4,7 @@ import { BsPrinter } from "react-icons/bs";
 
 export default function InvoiceViewHeldReceipt({ onBack }) {
     return (
-        <div id='invoice-view-invoice'>
+        <div id='invoice-view-held-receipt'>
 
             {/* Back Button */}
             <button 
@@ -12,7 +12,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                 className="flex items-center text-dark-primary font-semibold cursor-pointer mb-4"
             >
                 <IoIosArrowBack className="text-dark-primary text-xl" /> 
-                Back to <span className="font-bold">&nbsp;All Invoices</span>
+                Back to <span className="font-bold">&nbsp;Held Receipts</span>
             </button>
 
             {/* Date */}
@@ -26,7 +26,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                         Held Receipt
                     </div>
                     <h3 className="text-2xl text-white-f8fdff font-semibold">Jeremiah Omonefe</h3>
-                    <p className="text-white-f8fdff text-[13px] font-medium">INVOICE NUMBER: #<span>234650</span></p>
+                    <p className="text-white-f8fdff text-[13px] font-medium">INVOICE NUMBER: #<span>2022345</span></p>
                     <p className="text-white-f8fdff text-[13px] font-medium">Abraka, Delta State</p>
                 </div>
 

@@ -1,15 +1,6 @@
-import { useState } from "react";
-import InvoiceViewHeldReceipt from "./InvoiceViewHeldReceipt"; // Import the view component
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
 
 export default function InvoiceHeldReceipts({ onBack }) {
-    const [selectedInvoice, setSelectedInvoice] = useState(null); // State for selected invoice
-
-    // Show InvoiceViewHeldReceipt if an invoice is selected
-    if (selectedInvoice) {
-        return <InvoiceViewHeldReceipt onBack={() => setSelectedInvoice(null)} />;
-    }
-
     return (
         <>
             {/* Date */}
@@ -109,7 +100,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                             </td>
                             <td className="px-2.5 py-2">
                                 <button 
-                                    onClick={() => setSelectedInvoice("#2022345")} // ✅ Open InvoiceViewHeldReceipt
+                                    onClick={() => setShowViewInvoice(true)}
                                     className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                     View
                                 </button>
@@ -135,6 +126,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                             </td>
                             <td className="px-2.5 py-2">
                                 <button 
+                                    onClick={() => setShowViewInvoice(true)}
                                     className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                     View
                                 </button>
@@ -160,6 +152,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                             </td>
                             <td className="px-2.5 py-2">
                                 <button 
+                                    onClick={() => setShowViewInvoice(true)}
                                     className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                     View
                                 </button>
