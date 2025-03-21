@@ -25,14 +25,13 @@ import {
 } from "@heroicons/react/20/solid";
 
 import { BiSolidDashboard } from "react-icons/bi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
+import { HiOutlineShoppingCart, HiLogout } from "react-icons/hi";
 import { CgList } from "react-icons/cg";
 import { PiScroll } from "react-icons/pi";
-import { TbHistory } from "react-icons/tb";
 import { LuCircleUserRound } from "react-icons/lu";
 import { TbHelpSquareRounded } from "react-icons/tb";
 import { MdDarkMode } from "react-icons/md";
-import { HiLogout } from "react-icons/hi";
+import { RiMoneyDollarBoxLine } from "react-icons/ri";
 
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import InputOrder from "./InputOrder";
@@ -426,7 +425,7 @@ export default function DashboardLayout() {
                                             className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
                                         >
                                             <span className="flex items-center gap-x-3">
-                                            <CgList className="size-6" /> Sales
+                                            <RiMoneyDollarBoxLine className="size-6" /> Sales
                                             </span>
                                             <ChevronDownIcon className={`size-5 transition-transform ${isSalesOpen ? "rotate-180" : "rotate-0"}`} />
                                         </button>
