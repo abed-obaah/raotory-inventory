@@ -94,7 +94,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                                 Wholesale
                             </td>
                             <td className="px-2.5 py-2">
-                                <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                <div className="flex items-center justify-center bg-[#FFE26F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                     Held
                                 </div>
                             </td>
@@ -120,7 +120,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                                 Wholesale
                             </td>
                             <td className="px-2.5 py-2">
-                                <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                <div className="flex items-center justify-center bg-[#FFE26F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                     Held
                                 </div>
                             </td>
@@ -146,7 +146,7 @@ export default function InvoiceHeldReceipts({ onBack }) {
                                 Wholesale
                             </td>
                             <td className="px-2.5 py-2">
-                                <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
+                                <div className="flex items-center justify-center bg-[#FFE26F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                     Held
                                 </div>
                             </td>

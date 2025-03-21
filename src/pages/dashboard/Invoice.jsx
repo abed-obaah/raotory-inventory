@@ -138,7 +138,6 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowViewInvoice(true)}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>
@@ -164,7 +163,6 @@ export default function Invoice() {
                                     </td>
                                     <td className="px-2.5 py-2">
                                         <button 
-                                            onClick={() => setShowViewInvoice(true)}
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
                                             View
                                         </button>

@@ -2,7 +2,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { HiOutlineInboxArrowDown } from "react-icons/hi2";
 import { BsPrinter } from "react-icons/bs";
 
-export default function InvoiceViewInvoice({ onBack }) {
+export default function InvoiceViewHeldReceipt({ onBack }) {
     return (
         <div id='invoice-view-invoice'>
 
@@ -22,8 +22,8 @@ export default function InvoiceViewInvoice({ onBack }) {
             <div className="flex flex-col md:flex-row justify-between md:items-center bg-blue-0e90da rounded-[10px] md:min-h-[164px] mb-8">
                 {/* Column 01 */}
                 <div className="flex-[1.2] p-4 md:p-7.5">
-                    <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px] mb-3 border border-dark">
-                        Paid
+                    <div className="flex items-center justify-center bg-[#FFE26F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px] mb-3">
+                        Held Receipt
                     </div>
                     <h3 className="text-2xl text-white-f8fdff font-semibold">Jeremiah Omonefe</h3>
                     <p className="text-white-f8fdff text-[13px] font-medium">INVOICE NUMBER: #<span>234650</span></p>
@@ -133,12 +133,12 @@ export default function InvoiceViewInvoice({ onBack }) {
             {/* Buttons */}
             <div className="flex justify-between">
                 {/* Confirm payment button */}
-                <button className="hidden items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer">
+                <button className="flex items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer">
                     <HiOutlineInboxArrowDown className="text-off-white" />
                     Confirm Payment
                 </button>
                 {/* Print button */}
-                <div className="bg-[#0E90DA33] p-2.5 rounded-full cursor-pointer w-max">
+                <div className="bg-[#0E90DA33] p-2.5 rounded-full cursor-pointer">
                     <BsPrinter className="size-6" />
                 </div>
             </div>
