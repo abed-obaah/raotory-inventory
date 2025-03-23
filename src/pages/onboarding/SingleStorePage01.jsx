@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useSelector } from "react-redux"; // Import useSelector
 import OnboardingHome from "./OnboardingHome";
 import SingleStorePage02 from "./SingleStorePage02";
 import { FiArrowLeft } from "react-icons/fi";
 
 export default function SingleStorePage01() {
     const [view, setView] = useState("single-store-page-01");
+    const [loading, setLoading] = useState(false);
+
+    // Get user email from Redux store
+    const { user } = useSelector((state) => state.auth);
+    const userEmail = user?.email || ""; // Fallback to empty string if undefined
 
     const [formData, setFormData] = useState({
         businessName: "",
@@ -19,6 +25,7 @@ export default function SingleStorePage01() {
         formData.phoneNumber.trim() !== "" &&
         formData.termsAccepted;
 
+    // Handle input changes
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((prev) => ({
@@ -27,11 +34,50 @@ export default function SingleStorePage01() {
         }));
     };
 
+    // Handle form submission with API call
+   // Handle form submission with API call
+// Handle form submission with API call
+const handleSubmit = async () => {
+    setLoading(true);
+    try {
+        const response = await fetch("https://raotory.com/apis/store_payment.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: userEmail, // Get email from Redux store
+                store_name: formData.businessName,
+                location: formData.location,
+                number_of_items: 1, // Replace with dynamic value if needed
+            }),
+        });
+
+        const data = await response.json();
+        console.log("Parsed Response:", data);
+
+        // Check for success field instead of status
+        if (response.ok && data.success) {
+            console.log("✅ API Success:", data);
+            setView("single-store-page-02"); // Navigate to next view
+        } else {
+            console.error("❌ API Error:", data);
+            alert(data.message || "Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        console.error("🚨 Network Error:", error);
+        alert("Network error. Please check your connection.");
+    } finally {
+        setLoading(false);
+    }
+};
+
+
+
     return (
         <>
             {view === "single-store-page-01" && (
                 <div id="single-store-page-01">
-
                     {/* Back Button */}
                     <button 
                         onClick={() => setView("onboarding-home")}
@@ -40,7 +86,7 @@ export default function SingleStorePage01() {
                         <FiArrowLeft className="text-dark-primary text-xl mr-1" />  
                         Back
                     </button>
-
+{user.email}
                     {/* Single store form */}
                     <div className="flex flex-col w-full max-w-[536px] mx-auto mt-10">
                         {/* Heading */}
@@ -113,32 +159,22 @@ export default function SingleStorePage01() {
                                     </div>
                                 </div>
 
-                                {/* Button */}
+                                {/* Submit Button */}
                                 <div className="mb-4 mt-20">
                                     <button
                                         type="button"
-                                        disabled={!isFormValid}
-                                        onClick={() => setView("single-store-page-02")}
-                                        className={`flex w-full justify-center font-semibold rounded-[10px] text-base p-4 text-center me-2 
-                                            ${isFormValid ? "bg-[#29A8F1] text-white hover:bg-[#1F8BCC]" : "bg-gray-d9d9d9 text-gray-500 cursor-not-allowed"}`}
+                                        disabled={!isFormValid || loading}
+                                        onClick={handleSubmit}
+                                        className={`flex w-full justify-center font-semibold rounded-[10px] text-base p-4 text-center 
+                                            ${isFormValid ? "bg-[#29A8F1] text-white hover:bg-[#1F8BCC]" : "bg-gray-d9d9d9 text-gray-500 cursor-not-allowed"}
+                                            ${loading ? "opacity-50" : ""}`}
                                     >
-                                        Continue
+                                        {loading ? "Submitting..." : "Continue"}
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
-                    {/* Next button */}
-                    <div className="w-full max-w-[340px] mx-auto mt-10 hidden">
-                        <button
-                            onClick={() => setView("single-store-page-02")}
-                            className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full cursor-pointer"
-                        >
-                            Next
-                        </button>
-                    </div>
-
                 </div>
             )}
 
