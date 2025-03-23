@@ -4,6 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import CreateNewCustomer from "./CreateNewCustomer";
 import CustomerDetails from "./CustomerDetails";
 import PatientCaseFile from "./PatientCaseFile";
+import CreateCustomerModify from "./CreateCustomerModify";
 
 export default function CreateCustomer() {
     const [view, setView] = useState("create-customer");
@@ -52,6 +53,7 @@ export default function CreateCustomer() {
                             </thead>
                             <tbody>
                                 <tr className="bg-white border border-gray-300 mb-5 rounded-[10px] grid grid-cols-6">
+                                    {/* Customer name */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold rounded-l-2xl col-span-2">
                                         <div 
                                             onClick={() => setView("customer-details")}
@@ -61,13 +63,18 @@ export default function CreateCustomer() {
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
                                     </td>
+                                    {/* Phone number */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">07014514834</td>
+                                    {/* Gender */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         <div className="flex items-center justify-center bg-blue-100 text-dark-primary font-semibold size-9 rounded-full">M</div>
                                     </td>
+                                    {/* Location */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">Abraka, Delta State</td>
+                                    {/* Action */}
                                     <td className="px-2.5 py-2 flex items-center gap-2.5">
                                         <button
+                                            onClick={() => setView("modify-customer")}
                                             className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer"
                                         >
                                             Modify
@@ -96,6 +103,7 @@ export default function CreateCustomer() {
             {view === "create-new-customer" && <CreateNewCustomer setView={setView} />}
             {view === "customer-details" && <CustomerDetails setView={setView} />}
             {view === "patient-case-file" && <PatientCaseFile setView={setView} />}
+            {view === "modify-customer" && <CreateCustomerModify setView={setView} />}
         </>
     );
 }
