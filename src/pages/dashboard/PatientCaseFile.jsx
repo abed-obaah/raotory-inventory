@@ -13,7 +13,7 @@ export default function PatientCaseFile({ setView }) {
             <div className="flex items-center gap-x-10 mb-9">
                 {/* Back Button */}
                 <button 
-                    onClick={() => setView("customer-details")}
+                    onClick={() => setView("create-customer")}
                     className="flex items-center text-dark-primary font-semibold cursor-pointer"
                 >
                     <FiArrowLeft className="text-dark-primary text-xl mr-1" /> 

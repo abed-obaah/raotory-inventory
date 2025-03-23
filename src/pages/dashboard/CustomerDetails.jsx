@@ -12,7 +12,7 @@ export default function CustomerDetails({ setView }) {
             <div className="flex items-center gap-x-10 mb-9">
                 {/* Back Button */}
                 <button 
-                    onClick={() => setView("home")}
+                    onClick={() => setView("create-customer")}
                     className="flex items-center text-dark-primary font-semibold cursor-pointer"
                 >
                     <FiArrowLeft className="text-dark-primary text-xl mr-1" /> 
