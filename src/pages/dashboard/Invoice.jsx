@@ -1,13 +1,11 @@
 import { useState } from "react";
 import InvoiceViewInvoice from "./InvoiceViewInvoice";
 import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
-import CustomerDetails from "./CustomerDetails";
 import InvoiceHeroImage from '../../assets/invoice-hero.png'
 
 export default function Invoice() {
     const [showViewInvoice, setShowViewInvoice] = useState(false);
     const [showHeldReceipts, setShowHeldReceipts] = useState(false);
-    const [showCustomerDetails, setShowCustomerDetails] = useState(false);
 
     return (
         <>
@@ -15,8 +13,6 @@ export default function Invoice() {
                 <InvoiceViewInvoice onBack={() => setShowViewInvoice(false)} />
             ) : showHeldReceipts ? (
                 <InvoiceHeldReceipts onBack={() => setShowHeldReceipts(false)} />
-            ) : showCustomerDetails ? (
-                <CustomerDetails />
             ) : (
                 <div id='invoice-home'>
                     {/* Date */}
@@ -98,11 +94,8 @@ export default function Invoice() {
                             <tbody>
                                 <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
                                     <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
-                                        <div 
-                                            onClick={() => setShowCustomerDetails(true)}
-                                            className="flex items-center gap-2 cursor-pointer"
-                                        >
-                                            <div className="flex justify-center items-center text-white bg-blue-400 rounded size-7.5">A</div>
+                                        <div className='flex items-center gap-2'>
+                                            <div className='flex justify-center items-center text-white bg-[#8FD7FF] rounded size-7.5'>A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
                                     </td>
