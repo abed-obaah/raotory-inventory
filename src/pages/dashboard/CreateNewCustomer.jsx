@@ -1,32 +1,10 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
 import { FiArrowLeft } from "react-icons/fi";
-import { IoMdThumbsUp, IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function CreateNewCustomer({ setView }) {
-    const [showModal, setShowModal] = useState(false);
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        gender: "",
-        location: "",
-    });
-
-    const isFormValid = formData.name && formData.phone && formData.gender && formData.location;
-
-    const handleInputChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-        setView("create-customer");
-    };
-
     return (
         <div id="create-new-customer">
             {/* Back Button */}
-            <button 
+            <button
                 onClick={() => setView("create-customer")}
                 className="flex items-center text-dark-primary font-semibold cursor-pointer mb-4"
             >
@@ -34,70 +12,62 @@ export default function CreateNewCustomer({ setView }) {
                 Back
             </button>
 
-            {/* Create new customer */}
-            <form className="flex flex-col gap-y-5 max-w-[800px] mx-auto">
-                {/* Customer name */}
+            {/* Create new customer form */}
+            <form
+                className="flex flex-col gap-y-5 max-w-[800px] mx-auto"
+                onSubmit={handleSubmit}
+            >
+                {/* Customer Name */}
                 <div>
                     <label className="block text-sm text-gray-757575">Customer Name</label>
                     <input
                         type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
+                        name=""
                         required
+                        placeholder="Enter customer's full name"
                         className="bg-white border border-gray-300 text-dark-primary rounded-lg block w-full px-4 py-3 mt-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
                     />
                 </div>
-                {/* Phone number */}
+
+                {/* Phone Number */}
                 <div>
                     <label className="block text-sm text-gray-757575">Phone Number</label>
                     <input
                         type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
+                        name=""
                         required
+                        placeholder="Enter phone number"
                         className="bg-white border border-gray-300 text-dark-primary rounded-lg block w-full px-4 py-3 mt-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
                     />
                 </div>
+
                 {/* Gender */}
                 <div>
                     <label className="block text-sm text-gray-757575">Gender</label>
-                    <select
-                        name="gender"
-                        value={formData.gender}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-white border border-gray-300 text-dark-primary rounded-lg block w-full px-2.5 py-3 mt-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                    >
-                        <option value="">Select</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                    <select required id="" class="bg-white border border-gray-300 text-dark-primary rounded-lg block w-full px-2.5 py-3 mt-1 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <option>Male</option>
+                        <option>Female</option>
                     </select>
                 </div>
+
                 {/* Location */}
                 <div>
                     <label className="block text-sm text-gray-757575">Location</label>
                     <input
                         type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleInputChange}
+                        name=""
                         required
+                        placeholder="Enter customer's location"
                         className="bg-white border border-gray-300 text-dark-primary rounded-lg block w-full px-4 py-3 mt-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
                     />
                 </div>
 
-                {/* Create customer button */}
+                {/* Create Customer Button */}
                 <button
-                    type="button"
-                    onClick={() => setShowModal(true)}
-                    disabled={!isFormValid}
-                    className={`px-11 py-3 rounded-[10px] w-full mt-10 ${
-                        isFormValid ? "bg-blue-500 text-white cursor-pointer" : "bg-gray-300 text-gray-600 cursor-not-allowed"
-                    }`}
+                    type="submit"
+                    className="bg-blue-500 text-white px-11 py-3 rounded-[10px] w-full cursor-pointer mt-10"
                 >
-                    Create customer
+                    {isLoading ? "Creating..." : "Create Customer"}
                 </button>
             </form>
 
