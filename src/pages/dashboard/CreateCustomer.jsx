@@ -8,6 +8,7 @@ import CreateCustomerModify from "./CreateCustomerModify";
 
 export default function CreateCustomer() {
     const [view, setView] = useState("create-customer");
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
 
     return (
         <>
@@ -74,7 +75,15 @@ export default function CreateCustomer() {
                                     {/* Action */}
                                     <td className="px-2.5 py-2 flex items-center gap-2.5">
                                         <button
-                                            onClick={() => setView("modify-customer")}
+                                            onClick={() => {
+                                                setSelectedCustomer({
+                                                    name: "Amos Pharmacy Ltd",
+                                                    phone: "07014514834",
+                                                    gender: "Male",
+                                                    location: "Abraka, Delta State"
+                                                });
+                                                setView("modify-customer");
+                                            }}
                                             className="bg-blue-primary text-off-white text-base px-4 py-1 rounded cursor-pointer"
                                         >
                                             Modify
@@ -103,7 +112,8 @@ export default function CreateCustomer() {
             {view === "create-new-customer" && <CreateNewCustomer setView={setView} />}
             {view === "customer-details" && <CustomerDetails setView={setView} />}
             {view === "patient-case-file" && <PatientCaseFile setView={setView} />}
-            {view === "modify-customer" && <CreateCustomerModify setView={setView} />}
+            {/* {view === "modify-customer" && <CreateCustomerModify setView={setView} />} */}
+            {view === "modify-customer" && (<CreateCustomerModify setView={setView} customer={selectedCustomer} />)}
         </>
     );
 }
