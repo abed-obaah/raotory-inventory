@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
+import { useSelector } from "react-redux"; // Import useSelector for Redux
 import MultiStorePage01 from "./MultiStorePage01";
 import MultiStorePage03 from "./MultiStorePage03";
 
-export default function MultiStorePage02({ setStep, storeCount }) {
+export default function MultiStorePage02({ setStep, storeCount, setStoreCount }) {
+    const { user } = useSelector((state) => state.auth); // Get user from Redux state
+    const userEmail = user?.email || ""; // Fallback to empty string if undefined
+    
     const [view, setView] = useState("multi-store-page-02");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const [stores, setStores] = useState(
         Array.from({ length: storeCount }, () => ({
@@ -19,7 +25,7 @@ export default function MultiStorePage02({ setStep, storeCount }) {
     const isFormValid =
         stores.every(
             (store) => store.businessName && store.location && store.phoneNumber
-        ) && termsAccepted;
+        ) && termsAccepted && userEmail; // Ensure userEmail is not empty
 
     const handleChange = (index, field, value) => {
         setStores((prev) =>
@@ -29,10 +35,48 @@ export default function MultiStorePage02({ setStep, storeCount }) {
         );
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (isFormValid) {
-            setStep((prev) => prev + 1);
+        if (!isFormValid) return;
+        setLoading(true);
+        setError(null);
+
+        try {
+            const payload = {
+                email: userEmail, // Include user email
+                stores: stores.map(store => ({
+                    business_name: store.businessName,
+                    location: store.location,
+                    phone: store.phoneNumber
+                }))
+            };
+
+            const response = await fetch("https://raotory.com/apis/multistore.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to create stores. Please try again.");
+            }
+
+            const data = await response.json();
+            console.log("Success:", data);
+
+            if (data.success) {
+                setView("multi-store-page-03"); // Go to next page if successful
+                setStep((prev) => prev + 1);
+            } else {
+                setError(data.message || "Something went wrong.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+            setError(err.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -42,17 +86,15 @@ export default function MultiStorePage02({ setStep, storeCount }) {
                 <div id="multi-store-page-02">
 
                     {/* Back Button */}
-                    <button 
+                    <button
                         onClick={() => setView("multi-store-page-01")}
                         className="flex items-center text-dark-primary font-semibold cursor-pointer mb-4"
                     >
-                        <FiArrowLeft className="text-dark-primary text-xl mr-1" />  
+                        <FiArrowLeft className="text-dark-primary text-xl mr-1" />
                         Back
                     </button>
 
-                    {/* Form to enter multi store details */}
                     <div className="flex flex-col w-full max-w-[536px] mx-auto mt-10">
-                        {/* Heading */}
                         <div className="mb-7 text-center">
                             <h2 className="text-2xl font-semibold mb-2">Multi store</h2>
                             <p className="text-gray-600 text-base max-w-[468px] mx-auto">
@@ -60,7 +102,6 @@ export default function MultiStorePage02({ setStep, storeCount }) {
                             </p>
                         </div>
 
-                        {/* Form */}
                         <div className="w-full border border-black-10-percent rounded-3xl p-6 lg:p-10.5">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 {stores.map((store, index) => (
@@ -69,7 +110,6 @@ export default function MultiStorePage02({ setStep, storeCount }) {
 
                                         <input
                                             type="text"
-                                            name={`businessName-${index}`}
                                             value={store.businessName}
                                             onChange={(e) =>
                                                 handleChange(index, "businessName", e.target.value)
@@ -81,7 +121,6 @@ export default function MultiStorePage02({ setStep, storeCount }) {
 
                                         <input
                                             type="text"
-                                            name={`location-${index}`}
                                             value={store.location}
                                             onChange={(e) =>
                                                 handleChange(index, "location", e.target.value)
@@ -93,7 +132,6 @@ export default function MultiStorePage02({ setStep, storeCount }) {
 
                                         <input
                                             type="tel"
-                                            name={`phoneNumber-${index}`}
                                             value={store.phoneNumber}
                                             onChange={(e) =>
                                                 handleChange(index, "phoneNumber", e.target.value)
@@ -105,7 +143,6 @@ export default function MultiStorePage02({ setStep, storeCount }) {
                                     </div>
                                 ))}
 
-                                {/* Agree to Terms Checkbox */}
                                 <div className="flex items-center mt-5">
                                     <input
                                         id="terms"
@@ -120,36 +157,27 @@ export default function MultiStorePage02({ setStep, storeCount }) {
                                     </label>
                                 </div>
 
-                                {/* Button */}
+                                {error && (
+                                    <p className="text-red-500 text-sm mt-2">{error}</p>
+                                )}
+
                                 <div className="mb-4 mt-6">
                                     <button
-                                        onClick={() => setView("multi-store-page-03")}
                                         type="submit"
-                                        disabled={!isFormValid}
+                                        disabled={!isFormValid || loading}
                                         className={`flex w-full justify-center font-semibold rounded-[10px] text-base p-4 text-center me-2 
-                                            ${isFormValid ? "bg-[#29A8F1] text-white hover:bg-[#1F8BCC]" : "bg-gray-d9d9d9 text-gray-500 cursor-not-allowed"}`}
+                                        ${isFormValid ? "bg-[#29A8F1] text-white hover:bg-[#1F8BCC]" : "bg-gray-d9d9d9 text-gray-500 cursor-not-allowed"}`}
                                     >
-                                        Continue
+                                        {loading ? "Submitting..." : "Continue"}
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
-                    {/* Next button */}
-                    <div className="w-full max-w-[340px] mx-auto mt-10 hidden">
-                        <button
-                            onClick={() => setView("multi-store-page-03")}
-                            className="bg-blue-500 text-white px-11 py-2.5 rounded-[10px] w-full cursor-pointer"
-                        >
-                            Next
-                        </button>
-                    </div>
-
                 </div>
             )}
 
-            {view === "multi-store-page-01" && <MultiStorePage01 setView={setView} />}
+            {view === "multi-store-page-01" && <MultiStorePage01 setView={setView} setStoreCount={setStoreCount} />}
             {view === "multi-store-page-03" && <MultiStorePage03 setView={setView} />}
         </>
     );
