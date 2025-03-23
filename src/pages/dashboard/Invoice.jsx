@@ -94,22 +94,27 @@ export default function Invoice() {
                             <tbody>
                                 <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
                                     <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
+                                        {/* Customer name */}
                                         <div className='flex items-center gap-2'>
                                             <div className='flex justify-center items-center text-white bg-[#8FD7FF] rounded size-7.5'>A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
                                     </td>
+                                    {/* Invoice number */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         #2022345
                                     </td>
+                                    {/* Sales type */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         Wholesale
                                     </td>
+                                    {/* Status */}
                                     <td className="px-2.5 py-2">
                                         <div className="flex items-center justify-center bg-[#00B5484F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                             Paid
                                         </div>
                                     </td>
+                                    {/* Action */}
                                     <td className="px-2.5 py-2">
                                         <button 
                                             onClick={() => setShowViewInvoice(true)}
@@ -119,23 +124,28 @@ export default function Invoice() {
                                     </td>
                                 </tr>
                                 <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
+                                    {/* Customer name */}
                                     <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
                                         <div className='flex items-center gap-2'>
                                             <div className='flex justify-center items-center text-white bg-[#8FD7FF] rounded size-7.5'>A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
                                     </td>
+                                    {/* Invoice number */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         #2022345
                                     </td>
+                                    {/* Sales type */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         Wholesale
                                     </td>
+                                    {/* Status */}
                                     <td className="px-2.5 py-2">
                                         <div className="flex items-center justify-center bg-[#CA00001F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                             Credit
                                         </div>
                                     </td>
+                                    {/* Action */}
                                     <td className="px-2.5 py-2">
                                         <button 
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
@@ -144,23 +154,28 @@ export default function Invoice() {
                                     </td>
                                 </tr>
                                 <tr className="grid grid-cols-6 bg-white border border-gray-e5e5e5 rounded-[10px] mb-5">
+                                    {/* Customer name */}
                                     <td className="col-span-2 px-2.5 py-2 text-dark-primary font-semibold">
                                         <div className='flex items-center gap-2'>
                                             <div className='flex justify-center items-center text-white bg-[#8FD7FF] rounded size-7.5'>A</div>
                                             <p>Amos Pharmacy Ltd</p>
                                         </div>
                                     </td>
+                                    {/* Invoice number */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         #2022345
                                     </td>
+                                    {/* Sales type */}
                                     <td className="px-2.5 py-2 text-dark-primary font-semibold">
                                         Wholesale
                                     </td>
+                                    {/* Status */}
                                     <td className="px-2.5 py-2">
                                         <div className="flex items-center justify-center bg-[#C6CA001F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px]">
                                             Part
                                         </div>
                                     </td>
+                                    {/* Action */}
                                     <td className="px-2.5 py-2">
                                         <button 
                                             className="bg-blue-primary text-white px-8 py-1 rounded w-max cursor-pointer">
