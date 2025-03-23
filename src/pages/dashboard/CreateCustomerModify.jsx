@@ -53,7 +53,7 @@ export default function CreateCustomerModify({ setView }) {
                     />
                 </div>
 
-                {/* Create customer button */}
+                {/* Modify button */}
                 <button
                     type="submit"
                     className="bg-blue-500 text-white px-11 py-3 rounded-[10px] w-full cursor-pointer mt-10"
