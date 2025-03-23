@@ -5,7 +5,7 @@ import { TbPhonePause, TbFilter } from "react-icons/tb";
 import { GrLocation } from "react-icons/gr";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export default function CustomerDetails({ setView }) {
+export default function CustomerDetails({ setView,customer }) {
     return (
         <div id="customer-details">
             {/* Back button / search */}
@@ -46,18 +46,21 @@ export default function CustomerDetails({ setView }) {
                             {/* Name */}
                             <div className="flex items-center">
                                 <LuSquareUserRound className="text-dark-primary size-5 mr-3.5" />
-                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">Amos Rukkie</p>
-                                <div className="flex items-center justify-center bg-blue-100 text-dark-primary font-semibold size-9 rounded-full">M</div>
+                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">{customer?.name}</p>
+                                <div className="flex items-center justify-center bg-blue-100 text-dark-primary font-semibold size-9 rounded-full">
+                                    {customer?.gender?.toLowerCase() === "female" ? "F" : customer?.gender?.toLowerCase() === "male" ? "M" : "-"}
+                                </div>
+
                             </div>
                             {/* Phone */}
                             <div className="flex items-center">
                                 <TbPhonePause className="text-dark-primary size-5 mr-3.5" />
-                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">07014514834</p>
+                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">{customer?.phone}</p>
                             </div>
                             {/* Location */}
                             <div className="flex items-center">
                                 <GrLocation className="text-dark-primary size-5 mr-3.5" />
-                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">Abraka, Delta State</p>
+                                <p className="text-dark-primary text-xl font-semibold mr-2 whitespace-nowrap">{customer?.location}</p>
                             </div>
                         </div>
                         {/* Action buttons */}
