@@ -105,7 +105,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                         <tr className="bg-white hover:bg-gray-100">
                             {/* Serial number */}
                             <td className="px-2.5 py-2 border border-black-10-percent text-gray-757575">
-                                01
+                                02
                             </td>
                             {/* Product name */}
                             <td className="px-2.5 py-2 border border-black-10-percent text-gray-757575">
@@ -131,7 +131,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                         <tr className="bg-white hover:bg-gray-100">
                             {/* Serial number */}
                             <td className="px-2.5 py-2 border border-black-10-percent text-gray-757575">
-                                01
+                                03
                             </td>
                             {/* Product name */}
                             <td className="px-2.5 py-2 border border-black-10-percent text-gray-757575">
