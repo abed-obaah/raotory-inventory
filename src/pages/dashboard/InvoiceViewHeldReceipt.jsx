@@ -68,7 +68,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                     <thead className="text-sm text-gray-757575 bg-gray-e5e5e5">
                         <tr>
                             <th className="px-2.5 py-3 border border-black-10-percent">S/N</th>
-                            <th className="px-2.5 py-3 border border-black-10-percent">Cost Price</th>
+                            <th className="px-2.5 py-3 border border-black-10-percent">Product Name</th>
                             <th className="px-2.5 py-3 border border-black-10-percent">Selling Price</th>
                             <th className="px-2.5 py-3 border border-black-10-percent">Quantity</th>
                             <th className="px-2.5 py-3 border border-black-10-percent">Total</th>
