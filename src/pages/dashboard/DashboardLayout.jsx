@@ -440,7 +440,7 @@ const handleStoreSelection = (store) => {
                                     <li key={name}>
                                         <button
                                         onClick={() => setSelectedComponent(name)}
-                                        className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                        className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                             selectedComponent === name
                                             ? "bg-blue-500 text-white"
                                             : "text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -455,7 +455,7 @@ const handleStoreSelection = (store) => {
                                     <li>
                                         <button
                                             onClick={() => setIsProductsOpen(!isProductsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
+                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white cursor-pointer"
                                         >
                                             <span className="flex items-center gap-x-3">
                                             <CgList className="size-6" /> Products
@@ -468,7 +468,7 @@ const handleStoreSelection = (store) => {
                                                 <li key={subItem}>
                                                 <button
                                                     onClick={() => setSelectedComponent(subItem)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                                     selectedComponent === subItem
                                                         ? "bg-blue-500 text-white"
                                                         : "text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -486,7 +486,7 @@ const handleStoreSelection = (store) => {
                                     <li>
                                         <button
                                             onClick={() => setIsSalesOpen(!isSalesOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
+                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white cursor-pointer"
                                         >
                                             <span className="flex items-center gap-x-3">
                                             <RiMoneyDollarBoxLine className="size-6" /> Sales
@@ -499,7 +499,7 @@ const handleStoreSelection = (store) => {
                                                 <li key={subItem}>
                                                 <button
                                                     onClick={() => setSelectedComponent(subItem)}
-                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                    className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                                     selectedComponent === subItem
                                                         ? "bg-blue-500 text-white"
                                                         : "text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -519,7 +519,7 @@ const handleStoreSelection = (store) => {
                                         <li key={name}>
                                             <button
                                             onClick={() => setSelectedComponent(name)}
-                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                                 selectedComponent === name
                                                 ? "bg-blue-500 text-white"
                                                 : "text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -534,7 +534,7 @@ const handleStoreSelection = (store) => {
                                     <li>
                                         <button
                                             onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white"
+                                            className="flex items-center justify-between w-full p-2 text-sm font-semibold rounded-md text-left text-gray-700 hover:bg-blue-500 hover:text-white cursor-pointer"
                                         >
                                             <span className="flex items-center gap-x-3">
                                                 <Cog6ToothIcon className="size-6" /> Settings
@@ -547,7 +547,7 @@ const handleStoreSelection = (store) => {
                                                     <li key={subItem}>
                                                         <button
                                                             onClick={() => setSelectedComponent(subItem)}
-                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                                                 selectedComponent === subItem
                                                                     ? "bg-blue-500 text-white"
                                                                     : "text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -566,7 +566,7 @@ const handleStoreSelection = (store) => {
                                         <li key={name}>
                                             <button
                                             onClick={() => setSelectedComponent(name)}
-                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left ${
+                                            className={`flex items-center gap-x-3 p-2 text-sm font-semibold rounded-md w-full text-left cursor-pointer ${
                                                 selectedComponent === name
                                                 ? "bg-blue-500 text-white"
                                                 : "text-gray-700 hover:bg-blue-500 hover:text-white"
