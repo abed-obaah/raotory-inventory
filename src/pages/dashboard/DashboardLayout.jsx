@@ -48,10 +48,6 @@ import SettingsRole from "./SettingsRole";
 import TotalProfit from "./TotalProfit";
 import axios from "axios";
 
-
-
-
-
 const userNavigation = [
   { name: "Store Name 01", href: "#" },
   { name: "Store Name 02", href: "#" },
@@ -67,8 +63,6 @@ export default function DashboardLayout() {
   const [breadcrumb, setBreadcrumb] = useState([{ name: "Dashboard", href: "/" }]);
   const [storeName, setStoreName] = useState("Loading...");
   const [userNavigation, setUserNavigation] = useState([]);
-
-
 
   useEffect(() => {
     const fetchUserStores = async () => {
