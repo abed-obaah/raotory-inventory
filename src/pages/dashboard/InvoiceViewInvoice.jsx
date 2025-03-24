@@ -132,10 +132,10 @@ export default function InvoiceViewInvoice({ onBack }) {
 
             {/* Buttons */}
             <div className="flex justify-between">
-                {/* Confirm payment button */}
-                <button className="hidden items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer">
+                {/* Make a refund button */}
+                <button className="flex items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer">
                     <HiOutlineInboxArrowDown className="text-off-white" />
-                    Confirm Payment
+                    Make A Refund
                 </button>
                 {/* Print button */}
                 <div className="bg-[#0E90DA33] p-2.5 rounded-full cursor-pointer w-max">
