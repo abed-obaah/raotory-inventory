@@ -167,18 +167,34 @@ export default function PatientCaseFile({ setView }) {
             {/* Add new patient case file modal */}
             {showModal &&
                 createPortal(
+                    // Portal background
                     <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
-                        <div className="flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px]">
-                            <IoIosCloseCircleOutline onClick={() => setShowModal(false)} className="size-6 self-end cursor-pointer" />
-                            <div className="bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8">
-                                <IoMdThumbsUp className="size-12 text-blue-0e90da" />
+                        {/* Portal wrapper */}
+                        <div className="flex flex-col bg-white p-4 rounded-xl shadow-lg sm:min-w-[400px]">
+                            
+                            {/* Back button */}
+                            <button 
+                                onClick={() => setShowModal(false)}
+                                className="flex items-center gap-2 text-dark-primary font-semibold cursor-pointer mb-7"
+                            >
+                                <IoIosArrowBack className="text-dark-primary text-xl font-bold" /> 
+                                Case File
+                            </button>
+                            
+                            {/* Main content */}
+                            <div className="mb-14">
+                                Main content goes here
                             </div>
-                            <h2 className="text-xl text-gray-757575 font-bold mb-8">Saved Successfully</h2>
-                            <div className="flex gap-6 mb-6">
-                                <button className="text-white bg-[#0E90DA] hover:bg-[#29A8F1] rounded text-base font-semibold px-5 py-1.5 w-[168px]">
+                            
+                            {/* Action buttons */}
+                            <div className="flex gap-6">
+                                <button className="text-white bg-blue hover:bg-blue-hover rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer">
                                     Save
                                 </button>
-                                <button className="text-[#CA0000] bg-[#CA00001F] hover:bg-blue-0e90da rounded text-base font-semibold px-4 py-0 ">
+                                <button 
+                                    onClick={() => setShowModal(false)} 
+                                    className="text-red bg-red-bg hover:bg-blue-0e90da rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer"
+                                >
                                     Cancel
                                 </button>
                             </div>
