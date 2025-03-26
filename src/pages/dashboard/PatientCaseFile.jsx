@@ -170,7 +170,7 @@ export default function PatientCaseFile({ setView }) {
                     // Portal background
                     <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
                         {/* Portal wrapper */}
-                        <div className="flex flex-col bg-[#F8FDFF] px-4 py-6 rounded-xl shadow-lg sm:min-w-[400px]">
+                        <div className="flex flex-col bg-[#F8FDFF] px-4 py-6 rounded-xl shadow-lg sm:min-w-[400px] xl:min-w-[600px]">
                             
                             {/* Back button */}
                             <button 
@@ -215,6 +215,26 @@ export default function PatientCaseFile({ setView }) {
                                                 />
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* Diagnosis/Impression */}
+                                    <div className="mb-5">
+                                        <label className="block text-sm text-[#B2B1B1]">Diagnosis/Impression</label>
+                                        <textarea
+                                            rows="4"
+                                            placeholder="Input Diagnosis" 
+                                            className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                        />
+                                    </div>
+
+                                    {/* Treatment Plan */}
+                                    <div className="">
+                                        <label className="block text-sm text-[#B2B1B1]">Treatment Plan</label>
+                                        <textarea
+                                            rows="2"
+                                            placeholder="Input Treatment Plan" 
+                                            className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                        />
                                     </div>
 
                                     {/* Action buttons */}
