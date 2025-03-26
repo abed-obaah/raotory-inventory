@@ -20,7 +20,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
 
             {/* Hero */}
             <div className="flex flex-col md:flex-row justify-between md:items-center bg-blue-0e90da rounded-[10px] md:min-h-[164px] mb-8">
-                {/* Column 01 */}
+                {/* Column 01 - Customer details */}
                 <div className="flex-[1.2] p-4 md:p-7.5">
                     <div className="flex items-center justify-center bg-[#FFE26F] text-dark-primary font-semibold px-4 py-1 rounded-[37px] w-[128px] mb-3">
                         Held Receipt
@@ -33,7 +33,7 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                 {/* Divider 01 */}
                 <div className="hidden md:block h-32 border-l border-white-f8fdff opacity-50"></div>
 
-                {/* Column 02 */}
+                {/* Column 02 - Grand total */}
                 <div className="flex-1 p-4 md:p-7.5">
                     <p className="text-white-f8fdff text-[13px] font-medium">Grand Total</p>
                     <h3 className="text-2xl text-white-f8fdff font-semibold">NGN <span>1,000,000</span></h3>
@@ -42,16 +42,19 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
                 {/* Divider 02 */}
                 <div className="hidden md:block h-32 border-l border-white-f8fdff opacity-50"></div>
 
-                {/* Column 03 */}
+                {/* Column 03 - Amount paid*/}
                 <div className="flex-1 p-4 md:p-7.5">
                     <p className="text-white-f8fdff text-[13px] font-medium">Paid</p>
                     <h3 className="text-2xl text-white-f8fdff font-semibold">NGN <span>500,000</span></h3>
+                    <div className="bg-dark-text rounded w-max px-2 py-1 mt-[2px]">
+                        <p className="text-light-text text-[0.625rem] font-medium">Payment Type: <span>POS</span></p>
+                    </div>
                 </div>
 
                 {/* Divider 03 */}
                 <div className="hidden md:block h-32 border-l border-white-f8fdff opacity-50"></div>
 
-                {/* Column 04 */}
+                {/* Column 04 - Amount outstanding */}
                 <div className="flex-1 p-4 md:p-7.5">
                     <p className="text-white-f8fdff text-[13px] font-medium">Outstanding</p>
                     <h3 className="text-2xl text-white-f8fdff font-semibold mb-1.5">-NGN <span>500,000</span></h3>
