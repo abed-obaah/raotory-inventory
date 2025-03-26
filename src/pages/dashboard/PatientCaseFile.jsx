@@ -185,7 +185,7 @@ export default function PatientCaseFile({ setView }) {
                             <div>
                                 <form action="">
                                     {/* Complaints */}
-                                    <div className="mt-4">
+                                    <div className="mb-5">
                                         <label className="block text-sm text-[#B2B1B1]">Complaints</label>
                                         <textarea
                                             rows="4"
@@ -194,8 +194,31 @@ export default function PatientCaseFile({ setView }) {
                                         />
                                     </div>
 
+                                    {/* Vital signs */}
+                                    <div className="mb-5">
+                                        <label className="block text-sm text-[#B2B1B1]">Vital Signs</label>
+                                        <div className="flex items-center gap-4">
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    rows="4"
+                                                    placeholder="Blood Pressure" 
+                                                    className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                                />
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    rows="4"
+                                                    placeholder="Blood Sugar" 
+                                                    className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {/* Action buttons */}
-                                    <div className="flex gap-6 mt-14">
+                                    <div className="flex gap-6 justify-between mt-14">
                                         <button className="text-white bg-blue hover:bg-blue-hover rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer">
                                             Save
                                         </button>
