@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { FiArrowLeft, FiEdit } from "react-icons/fi";
 import { LuSquareUserRound } from "react-icons/lu";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbPhonePause, TbFilter } from "react-icons/tb";
 import { GrLocation } from "react-icons/gr";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoMdThumbsUp, IoIosCloseCircleOutline } from "react-icons/io";
+import { createPortal } from "react-dom";
 
 export default function PatientCaseFile({ setView }) {
+    const [showModal, setShowModal] = useState(false);
+
     return (
         <div id="patient-case-file">
 
@@ -98,7 +103,10 @@ export default function PatientCaseFile({ setView }) {
                                 Filter
                             </button>
                             {/* Edit */}
-                            <button className="flex items-center gap-2 border border-black-10-percent rounded-[8px] py-1.5 px-4 text-off-white text-base font-semibold cursor-pointer bg-blue-primary">
+                            <button 
+                                onClick={() => setShowModal(true)}
+                                className="flex items-center gap-2 border border-black-10-percent rounded-[8px] py-1.5 px-4 text-off-white text-base font-semibold cursor-pointer bg-blue-primary"
+                            >
                                 <FiEdit />
                                 Add File
                             </button>
@@ -155,6 +163,30 @@ export default function PatientCaseFile({ setView }) {
                     </div>
                 </div>
             </div>
+
+            {/* Add new patient case file modal */}
+            {showModal &&
+                createPortal(
+                    <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
+                        <div className="flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px]">
+                            <IoIosCloseCircleOutline onClick={() => setShowModal(false)} className="size-6 self-end cursor-pointer" />
+                            <div className="bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8">
+                                <IoMdThumbsUp className="size-12 text-blue-0e90da" />
+                            </div>
+                            <h2 className="text-xl text-gray-757575 font-bold mb-8">Saved Successfully</h2>
+                            <div className="flex gap-6 mb-6">
+                                <button className="text-white bg-[#0E90DA] hover:bg-[#29A8F1] rounded text-base font-semibold px-5 py-1.5 w-[168px]">
+                                    Save
+                                </button>
+                                <button className="text-[#CA0000] bg-[#CA00001F] hover:bg-blue-0e90da rounded text-base font-semibold px-4 py-0 ">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
+                )
+            }
         </div>
     );
 }

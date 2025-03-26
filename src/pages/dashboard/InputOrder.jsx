@@ -233,7 +233,8 @@ export default function InputOrder({ setSelectedComponent }) {
                             </div>
                         </div>,
                         document.body
-                    )}
+                    )
+                }
             </div>
         </>
     )
