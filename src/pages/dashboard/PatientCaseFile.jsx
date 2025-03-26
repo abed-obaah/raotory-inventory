@@ -168,9 +168,9 @@ export default function PatientCaseFile({ setView }) {
             {showModal &&
                 createPortal(
                     // Portal background
-                    <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
-                        {/* Portal wrapper */}
-                        <div className="flex flex-col bg-[#F8FDFF] px-4 py-6 rounded-xl shadow-lg sm:min-w-[400px] xl:min-w-[600px]">
+                    <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50 p-4">
+                         {/* Scrollable Modal */}
+                        <div className="flex flex-col bg-[#F8FDFF] px-4 py-6 rounded-xl shadow-lg sm:min-w-[400px] xl:min-w-[550px] max-h-[90vh] overflow-y-auto">
                             
                             {/* Back button */}
                             <button 
@@ -198,7 +198,7 @@ export default function PatientCaseFile({ setView }) {
                                     <div className="mb-5">
                                         <label className="block text-sm text-[#B2B1B1]">Vital Signs</label>
                                         <div className="flex items-center gap-4">
-                                            <div>
+                                            <div className="w-full">
                                                 <input
                                                     type="text"
                                                     rows="4"
@@ -206,7 +206,7 @@ export default function PatientCaseFile({ setView }) {
                                                     className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
                                                 />
                                             </div>
-                                            <div>
+                                            <div className="w-full">
                                                 <input
                                                     type="text"
                                                     rows="4"
