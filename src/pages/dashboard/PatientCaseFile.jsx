@@ -170,7 +170,7 @@ export default function PatientCaseFile({ setView }) {
                     // Portal background
                     <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
                         {/* Portal wrapper */}
-                        <div className="flex flex-col bg-white p-4 rounded-xl shadow-lg sm:min-w-[400px]">
+                        <div className="flex flex-col bg-[#F8FDFF] px-4 py-6 rounded-xl shadow-lg sm:min-w-[400px]">
                             
                             {/* Back button */}
                             <button 
@@ -182,21 +182,31 @@ export default function PatientCaseFile({ setView }) {
                             </button>
                             
                             {/* Main content */}
-                            <div className="mb-14">
-                                Main content goes here
-                            </div>
-                            
-                            {/* Action buttons */}
-                            <div className="flex gap-6">
-                                <button className="text-white bg-blue hover:bg-blue-hover rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer">
-                                    Save
-                                </button>
-                                <button 
-                                    onClick={() => setShowModal(false)} 
-                                    className="text-red bg-red-bg hover:bg-blue-0e90da rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer"
-                                >
-                                    Cancel
-                                </button>
+                            <div>
+                                <form action="">
+                                    {/* Complaints */}
+                                    <div className="mt-4">
+                                        <label className="block text-sm text-[#B2B1B1]">Complaints</label>
+                                        <textarea
+                                            rows="4"
+                                            placeholder="Input Complaints/Symptoms" 
+                                            className="w-full px-4 py-3 border border-black-10-percent rounded-[10px] mt-1 bg-white text-gray-text text-sm placeholder:text-light-gray-text focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                        />
+                                    </div>
+
+                                    {/* Action buttons */}
+                                    <div className="flex gap-6 mt-14">
+                                        <button className="text-white bg-blue hover:bg-blue-hover rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer">
+                                            Save
+                                        </button>
+                                        <button 
+                                            onClick={() => setShowModal(false)} 
+                                            className="text-red bg-red-bg hover:bg-red-bg-hover rounded text-base font-semibold px-5 py-1.5 w-[168px] cursor-pointer"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>,
