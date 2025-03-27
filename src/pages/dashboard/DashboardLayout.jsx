@@ -42,9 +42,9 @@ import ReturnedProducts from "./returnedProducts/ReturnedProducts";
 import Invoice from "./invoice/Invoice";
 import SalesHistory from "./salesHistory/SalesHistory";
 import CreateCustomer from "./createCustomer/CreateCustomer";
-import SettingsGeneral from "./SettingsGeneral";
-import SettingsUsers from "./SettingsUsers";
-import SettingsRole from "./SettingsRole";
+import SettingsGeneral from "./settingsGeneral/SettingsGeneral";
+import SettingsUsers from "./settingsUsers/SettingsUsers";
+import SettingsRole from "./settingsRole/SettingsRole";
 import TotalProfit from "./totalProfit/TotalProfit";
 import axios from "axios";
 
