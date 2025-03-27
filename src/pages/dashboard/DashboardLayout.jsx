@@ -45,7 +45,7 @@ import CreateCustomer from "./CreateCustomer";
 import SettingsGeneral from "./SettingsGeneral";
 import SettingsUsers from "./SettingsUsers";
 import SettingsRole from "./SettingsRole";
-import TotalProfit from "./TotalProfit";
+import TotalProfit from "./totalProfit/TotalProfit";
 import axios from "axios";
 
 const userNavigation = [
