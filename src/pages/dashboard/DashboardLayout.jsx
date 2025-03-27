@@ -38,7 +38,7 @@ import InputOrder from "./inputOrder/InputOrder";
 import Inventory from "./Inventory";
 import Overview from "./overview/Overview";
 import StockProducts from "./stockProducts/StockProducts";
-import ReturnedProducts from "./ReturnedProducts";
+import ReturnedProducts from "./returnedProducts/ReturnedProducts";
 import Invoice from "./Invoice";
 import SalesHistory from "./SalesHistory";
 import CreateCustomer from "./CreateCustomer";
