@@ -34,7 +34,7 @@ import { MdDarkMode } from "react-icons/md";
 import { RiMoneyDollarBoxLine } from "react-icons/ri";
 
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
-import InputOrder from "./InputOrder";
+import InputOrder from "./inputOrder/InputOrder";
 import Inventory from "./Inventory";
 import Overview from "./overview/Overview";
 import StockProduct from "./StockProduct";
@@ -122,7 +122,7 @@ const handleStoreSelection = (store) => {
 
   const components = {
       "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
-      "Input Order": () => <InputOrder />,
+      "Input Order": () => <InputOrder setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
       "Stock Products": () => <div><StockProduct /></div>,
       "Returned Products": () => <div><ReturnedProducts /></div>,
       "Inventory": () => <Inventory />,

@@ -68,7 +68,7 @@ export default function InputOrder({ setSelectedComponent }) {
                         <button 
                             type='' 
                             onClick={() => setSelectedComponent("Create Customer")} // Update state when clicked
-                            className="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da">
+                            className="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da cursor-pointer">
                             Create customer
                         </button>
                     </div>
