@@ -37,7 +37,7 @@ import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import InputOrder from "./inputOrder/InputOrder";
 import Inventory from "./Inventory";
 import Overview from "./overview/Overview";
-import StockProduct from "./StockProduct";
+import StockProduct from "./stockProduct/StockProduct";
 import ReturnedProducts from "./ReturnedProducts";
 import Invoice from "./Invoice";
 import SalesHistory from "./SalesHistory";
