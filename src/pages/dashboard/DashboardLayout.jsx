@@ -121,9 +121,8 @@ const handleStoreSelection = (store) => {
 
 
   const components = {
-    //   "Overview": () => <Overview />,
       "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
-      "Input Order": () => <InputOrder setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
+      "Input Order": () => <InputOrder />,
       "Stock Products": () => <div><StockProduct /></div>,
       "Returned Products": () => <div><ReturnedProducts /></div>,
       "Inventory": () => <Inventory />,
@@ -134,7 +133,7 @@ const handleStoreSelection = (store) => {
       "General": () => <SettingsGeneral />,
       "Users": () => <SettingsUsers />,
       "Role": () => <div><SettingsRole /></div>,
-      "Help Center": () => <div>Help Center Content</div>,
+      "Help Center": () => <div>Help Center coming soon</div>,
     };
 
   // Update breadcrumb when component changes
