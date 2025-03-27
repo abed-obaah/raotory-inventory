@@ -128,7 +128,7 @@ const handleStoreSelection = (store) => {
       "Inventory": () => <Inventory />,
       "Sales History": () => <div><SalesHistory /></div>,
       "Total Profit": () => <div><TotalProfit /></div>,
-      "Invoice": () => <div><Invoice /></div>,
+      "Invoice": () => <Invoice setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
       "Create Customer": () => <div><CreateCustomer /></div>,
       "General": () => <SettingsGeneral />,
       "Users": () => <SettingsUsers />,

@@ -2,7 +2,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { HiOutlineInboxArrowDown } from "react-icons/hi2";
 import { BsPrinter } from "react-icons/bs";
 
-export default function InvoiceViewHeldReceipt({ onBack }) {
+export default function InvoiceViewHeldReceipt({ onBack, setSelectedComponent }) {
     return (
         <div id='invoice-view-held-receipt'>
 
@@ -164,7 +164,10 @@ export default function InvoiceViewHeldReceipt({ onBack }) {
             {/* Buttons */}
             <div className="flex justify-between">
                 {/* Confirm payment button */}
-                <button className="flex items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer">
+                <button 
+                    onClick={() => setSelectedComponent("Input Order")} // Update state when clicked
+                    className="flex items-center gap-2 bg-blue-primary text-off-white text-base font-semibold rounded-[10px] px-6 md:px-20 py-2.5 cursor-pointer"
+                >
                     <HiOutlineInboxArrowDown className="text-off-white" />
                     Confirm Payment
                 </button>
