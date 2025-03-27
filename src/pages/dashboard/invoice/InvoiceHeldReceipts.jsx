@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InvoiceViewHeldReceipt from "./InvoiceViewHeldReceipt"; // Import the view component
-import InvoiceHeroImage from '../../assets/invoice-hero.png'
+import InvoiceHeroImage from '../../../assets/invoice-hero.png'
 
 export default function InvoiceHeldReceipts({ onBack }) {
     const [selectedInvoice, setSelectedInvoice] = useState(null); // State for selected invoice

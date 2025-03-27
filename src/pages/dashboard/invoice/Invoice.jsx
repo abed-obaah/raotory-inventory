@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InvoiceViewInvoice from "./InvoiceViewInvoice";
 import InvoiceHeldReceipts from "./InvoiceHeldReceipts";
-import InvoiceHeroImage from '../../assets/invoice-hero.png'
+import InvoiceHeroImage from '../../../assets/invoice-hero.png'
 
 export default function Invoice() {
     const [showViewInvoice, setShowViewInvoice] = useState(false);

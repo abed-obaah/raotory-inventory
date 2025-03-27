@@ -39,7 +39,7 @@ import Inventory from "./inventory/Inventory";
 import Overview from "./overview/Overview";
 import StockProducts from "./stockProducts/StockProducts";
 import ReturnedProducts from "./returnedProducts/ReturnedProducts";
-import Invoice from "./Invoice";
+import Invoice from "./invoice/Invoice";
 import SalesHistory from "./salesHistory/SalesHistory";
 import CreateCustomer from "./CreateCustomer";
 import SettingsGeneral from "./SettingsGeneral";
