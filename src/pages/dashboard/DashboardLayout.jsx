@@ -41,7 +41,7 @@ import StockProducts from "./stockProducts/StockProducts";
 import ReturnedProducts from "./returnedProducts/ReturnedProducts";
 import Invoice from "./invoice/Invoice";
 import SalesHistory from "./salesHistory/SalesHistory";
-import CreateCustomer from "./CreateCustomer";
+import CreateCustomer from "./createCustomer/CreateCustomer";
 import SettingsGeneral from "./SettingsGeneral";
 import SettingsUsers from "./SettingsUsers";
 import SettingsRole from "./SettingsRole";
