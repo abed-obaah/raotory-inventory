@@ -123,16 +123,16 @@ const handleStoreSelection = (store) => {
   const components = {
       "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
       "Input Order": () => <InputOrder setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
-      "Stock Products": () => <div><StockProducts /></div>,
-      "Returned Products": () => <div><ReturnedProducts /></div>,
+      "Stock Products": () => <StockProducts />,
+      "Returned Products": () => <ReturnedProducts />,
       "Inventory": () => <Inventory />,
-      "Sales History": () => <div><SalesHistory /></div>,
-      "Total Profit": () => <div><TotalProfit /></div>,
+      "Sales History": () => <SalesHistory />,
+      "Total Profit": () => <TotalProfit />,
       "Invoice": () => <Invoice setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
-      "Create Customer": () => <div><CreateCustomer /></div>,
+      "Create Customer": () => <CreateCustomer />,
       "General": () => <SettingsGeneral />,
       "Users": () => <SettingsUsers />,
-      "Role": () => <div><SettingsRole /></div>,
+      "Role": () => <SettingsRole />,
       "Help Center": () => <div>Help Center coming soon</div>,
     };
 
