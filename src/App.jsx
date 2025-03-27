@@ -4,7 +4,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
-import Account from "./pages/account/Account";
 import Register from "./pages/auth/Register";
 import  ForgotPasswordScreen from "./pages/forgotPassword/index";
 import  SetPasswordScreen from "./pages/forgotPassword/SetPassword";
@@ -23,7 +22,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/account/*" element={<Account />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
         <Route path="/set-password" element={<SetPasswordScreen />} />

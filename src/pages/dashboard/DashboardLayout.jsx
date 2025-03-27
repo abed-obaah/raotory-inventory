@@ -36,7 +36,7 @@ import { RiMoneyDollarBoxLine } from "react-icons/ri";
 import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import InputOrder from "./InputOrder";
 import Inventory from "./Inventory";
-import Overview from "./Overview";
+import Overview from "./overview/Overview";
 import StockProduct from "./StockProduct";
 import ReturnedProducts from "./ReturnedProducts";
 import Invoice from "./Invoice";
