@@ -37,7 +37,7 @@ import RaotoryLogoAndNameBlue from "../../assets/raotory-logo-name-blue.svg";
 import InputOrder from "./inputOrder/InputOrder";
 import Inventory from "./Inventory";
 import Overview from "./overview/Overview";
-import StockProduct from "./stockProduct/StockProduct";
+import StockProducts from "./stockProducts/StockProducts";
 import ReturnedProducts from "./ReturnedProducts";
 import Invoice from "./Invoice";
 import SalesHistory from "./SalesHistory";
@@ -123,7 +123,7 @@ const handleStoreSelection = (store) => {
   const components = {
       "Overview": () => <Overview setSelectedComponent={setSelectedComponent} />,  // ✅ Pass the prop
       "Input Order": () => <InputOrder setSelectedComponent={setSelectedComponent} />, // ✅ Pass the prop
-      "Stock Products": () => <div><StockProduct /></div>,
+      "Stock Products": () => <div><StockProducts /></div>,
       "Returned Products": () => <div><ReturnedProducts /></div>,
       "Inventory": () => <Inventory />,
       "Sales History": () => <div><SalesHistory /></div>,
