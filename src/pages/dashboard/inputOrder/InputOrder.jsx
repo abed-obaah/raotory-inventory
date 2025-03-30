@@ -6,17 +6,52 @@ import { createPortal } from "react-dom";
 
 export default function InputOrder({ setSelectedComponent }) {
     const [searchQuery, setSearchQuery] = useState('');
+    const [customerSearchQuery, setCustomerSearchQuery] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [selectedProducts, setSelectedProducts] = useState([]);
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [priceType, setPriceType] = useState('retail');
+    const [paymentType, setPaymentType] = useState('');
     
     const products = [
-        { id: 1, name: 'Paracetamol', cost: 10000, price: 15000, quantity: 1 },
-        { id: 2, name: 'Paracetamol', cost: 10000, price: 15000, quantity: 1 },
-        { id: 3, name: 'Paracetamol', cost: 10000, price: 15000, quantity: 1 },
-        { id: 4, name: 'Ibuprofen', cost: 12000, price: 18000, quantity: 1 },
-        { id: 5, name: 'Amoxicillin', cost: 9000, price: 14000, quantity: 1 }
+        { id: 1, name: 'Paracetamol', cost: 10000, retail: 15000, wholesale: 12000, quantity: 1 },
+        { id: 2, name: 'Ibuprofen', cost: 12000, retail: 18000, wholesale: 15000, quantity: 1 },
+        { id: 3, name: 'Amoxicillin', cost: 9000, retail: 14000, wholesale: 11000, quantity: 1 },
+        { id: 4, name: 'Vitamin C', cost: 8000, retail: 12000, wholesale: 10000, quantity: 1 },
+        { id: 5, name: 'Multivitamin', cost: 15000, retail: 22000, wholesale: 18000, quantity: 1 }
     ];
+
+    const customers = [
+        { id: 1, name: 'John Doe', phone: '08012345678', gender: 'Male', location: 'Lagos' },
+        { id: 2, name: 'Jane Smith', phone: '08023456789', gender: 'Female', location: 'Abuja' },
+        { id: 3, name: 'Michael Johnson', phone: '08034567890', gender: 'Male', location: 'Port Harcourt' },
+        { id: 4, name: 'Sarah Williams', phone: '08045678901', gender: 'Female', location: 'Kano' },
+        { id: 5, name: 'David Brown', phone: '08056789012', gender: 'Male', location: 'Ibadan' },
+        { id: 6, name: 'Emily Davis', phone: '08067890123', gender: 'Female', location: 'Enugu' },
+        { id: 7, name: 'Robert Wilson', phone: '08078901234', gender: 'Male', location: 'Benin' }
+    ];
+
+    const handleCustomerSearch = (e) => {
+        const query = e.target.value;
+        setCustomerSearchQuery(query);
+        if (query) {
+            const filtered = customers.filter(customer => 
+                customer.name.toLowerCase().includes(query.toLowerCase()) ||
+                customer.phone.includes(query)
+            );
+            setFilteredCustomers(filtered);
+        } else {
+            setFilteredCustomers([]);
+        }
+    };
+
+    const selectCustomer = (customer) => {
+        setSelectedCustomer(customer);
+        setCustomerSearchQuery(`${customer.name} - ${customer.phone}`);
+        setFilteredCustomers([]);
+    };
 
     const handleSearch = (e) => {
         const query = e.target.value;
@@ -32,7 +67,11 @@ export default function InputOrder({ setSelectedComponent }) {
     };
 
     const addProductToTable = (product) => {
-        setSelectedProducts(prev => [...prev, { ...product }]);
+        const newProduct = { 
+            ...product, 
+            currentPrice: priceType === 'wholesale' ? product.wholesale : product.retail 
+        };
+        setSelectedProducts(prev => [...prev, newProduct]);
         setSearchQuery('');
         setFilteredProducts([]);
     };
@@ -40,17 +79,32 @@ export default function InputOrder({ setSelectedComponent }) {
     const updateProduct = (index, key, value) => {
         const updatedProducts = [...selectedProducts];
         updatedProducts[index][key] = value;
-        if (key === 'quantity' || key === 'price') {
-            updatedProducts[index].total = updatedProducts[index].quantity * updatedProducts[index].price;
+        if (key === 'quantity' || key === 'currentPrice') {
+            updatedProducts[index].total = updatedProducts[index].quantity * updatedProducts[index].currentPrice;
         }
         setSelectedProducts(updatedProducts);
+    };
+
+    const handlePriceTypeChange = (type) => {
+        setPriceType(type);
+        setSelectedProducts(prev => prev.map(product => ({
+            ...product,
+            currentPrice: type === 'wholesale' ? product.wholesale : product.retail,
+            total: product.quantity * (type === 'wholesale' ? product.wholesale : product.retail)
+        })));
     };
 
     const deleteProduct = (index) => {
         setSelectedProducts(prev => prev.filter((_, i) => i !== index));
     };
 
-    const totalCost = selectedProducts.reduce((sum, p) => sum + (p.total || (p.price * p.quantity)), 0);
+    const totalCost = selectedProducts.reduce((sum, p) => sum + (p.total || (p.currentPrice * p.quantity)), 0);
+
+    // Check if Save & Issue Receipt button should be active
+    const isSaveButtonActive = selectedCustomer && selectedProducts.length > 0 && paymentType;
+    
+    // Check if Place On Hold button should be active
+    const isPlaceOnHoldActive = selectedCustomer && selectedProducts.length > 0;
 
     return (
         <>
@@ -59,15 +113,28 @@ export default function InputOrder({ setSelectedComponent }) {
 
                 {/* Select customer / Create customer */}
                 <form id="customer-search" className='mb-6.5'>
-                    <div class="relative">
+                    <div className="relative">
                         <input 
                             type="text" 
-                            class="block w-full p-4 ps-4 text-base text-blue-001b2a border border-black-10-percent rounded-[10px] bg-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-white dark:border-black-10-percent dark:placeholder-gray-757575" 
+                            value={customerSearchQuery}
+                            onChange={handleCustomerSearch}
+                            className="block w-full p-4 ps-4 text-base text-blue-001b2a border border-black-10-percent rounded-[10px] bg-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-white dark:border-black-10-percent dark:placeholder-gray-757575" 
                             placeholder="Select customer" 
                         />
+                        {filteredCustomers.length > 0 && (
+                            <ul className='absolute w-full bg-white border border-black-10-percent p-3 mt-3 z-10 rounded-[15px] max-w-[596px]'>
+                                {filteredCustomers.map((customer) => (
+                                    <li key={customer.id} 
+                                        onClick={() => selectCustomer(customer)} 
+                                        className='cursor-pointer p-2 hover:bg-[#E5E5E5] rounded'>
+                                        <span>{customer.name} - {customer.phone}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                         <button 
-                            type='' 
-                            onClick={() => setSelectedComponent("Create Customer")} // Update state when clicked
+                            type='button' 
+                            onClick={() => setSelectedComponent("Create Customer")}
                             className="text-white absolute end-4 bottom-2.5 bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-sm sm:text-base px-2 sm:px-5 py-2 dark:bg-blue-primary dark:hover:bg-blue-0e90da cursor-pointer">
                             Create customer
                         </button>
@@ -92,7 +159,7 @@ export default function InputOrder({ setSelectedComponent }) {
                                         onClick={() => addProductToTable(product)} 
                                         className='cursor-pointer p-2 hover:bg-[#E5E5E5] rounded flex justify-between'>
                                         <span>{product.name}</span>
-                                        <span className='border-l border-black-10-percent pl-2'>NGN {product.price}</span>
+                                        <span className='border-l border-black-10-percent pl-2'>NGN {priceType === 'wholesale' ? product.wholesale : product.retail}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -102,13 +169,13 @@ export default function InputOrder({ setSelectedComponent }) {
                     <div className="grid grid-cols-1 sm:w-[30%] h-max">
                         <select
                             id="price-type"
-                            name=""
-                            defaultValue=""
+                            name="price-type"
+                            value={priceType}
+                            onChange={(e) => handlePriceTypeChange(e.target.value)}
                             className="col-start-1 row-start-1 w-full appearance-none rounded-[10px] bg-white p-4 pr-10 pl-4 text-base text-gray-757575 outline-1 -outline-offset-1 outline-gray-300"
-                            >
-                                <option selected>Price Type</option>
-                                <option>Wholesale</option>
-                                <option>Retail</option>
+                        >
+                            <option value="retail">Retail</option>
+                            <option value="wholesale">Wholesale</option>
                         </select>
                         <ChevronDownIcon
                             aria-hidden="true"
@@ -118,10 +185,10 @@ export default function InputOrder({ setSelectedComponent }) {
                 </div>
 
                 {/* Product table */}
-                <div id='product-table' class="relative overflow-x-auto border border-black-10-percent mb-6 max-h-[300px]">
-                    <table id="products-table" class="w-full text-base text-left rtl:text-right text-blue-001b2a dark:text-blue-001b2a border-collapse bg-amber-200">
+                <div id='product-table' className="relative overflow-x-auto border border-black-10-percent mb-6 max-h-[300px]">
+                    <table id="products-table" className="w-full text-base text-left rtl:text-right text-blue-001b2a dark:text-blue-001b2a border-collapse bg-amber-200">
                         <caption className="hidden text-left text-black text-xl font-medium p-6"></caption>
-                        <thead class="text-sm text-white bg-dark-text-primary border-b border-black-10-percent dark:text-blue-001b2a">
+                        <thead className="text-sm text-white bg-dark-text-primary border-b border-black-10-percent dark:text-blue-001b2a">
                             <tr>
                                 <th className='px-2.5 py-3 border-r border-gray-757575'>S/N</th>
                                 <th className='px-2.5 py-3 border-r border-gray-757575 min-w-[240px]'>Product Name</th>
@@ -145,8 +212,8 @@ export default function InputOrder({ setSelectedComponent }) {
                                     <td className='px-2.5 py-2 border-r border-b border-black-10-percent text-blue-001b2a'>
                                         <input 
                                             type='number' 
-                                            value={product.price} 
-                                            onChange={(e) => updateProduct(index, 'price', parseFloat(e.target.value) || 0)}
+                                            value={product.currentPrice} 
+                                            onChange={(e) => updateProduct(index, 'currentPrice', parseFloat(e.target.value) || 0)}
                                             className='p-1 w-20'
                                         />
                                     </td>
@@ -160,7 +227,7 @@ export default function InputOrder({ setSelectedComponent }) {
                                         />
                                     </td>
                                     {/* Total */}
-                                    <td className='border-r border-b border-black-10-percent p-2'>NGN {product.total || product.price * product.quantity}</td>
+                                    <td className='border-r border-b border-black-10-percent p-2'>NGN {product.total || product.currentPrice * product.quantity}</td>
                                     {/* Action */}
                                     <td className='border-r border-b border-black-10-percent p-2'>
                                         <button onClick={() => deleteProduct(index)} className='bg-[#CA00001F] p-2 rounded-full'>
@@ -178,15 +245,17 @@ export default function InputOrder({ setSelectedComponent }) {
                     {/* Payment type */}
                     <div className="grid grid-cols-1 w-full sm:w-[30%] h-max">
                         <select
-                            id=""
-                            name=""
-                            defaultValue=""
+                            id="payment-type"
+                            name="payment-type"
+                            value={paymentType}
+                            onChange={(e) => setPaymentType(e.target.value)}
                             className="col-start-1 row-start-1 w-full appearance-none rounded-[10px] bg-white p-4 pr-10 pl-4 text-base text-gray-757575 outline-1 -outline-offset-1 outline-gray-300"
-                            >
-                                <option selected>Payment Type</option>
-                                <option>Cash</option>
-                                <option>Transfer</option>
-                                <option>POS</option>
+                            required
+                        >
+                            <option value="">Payment Type</option>
+                            <option value="cash">Cash</option>
+                            <option value="transfer">Transfer</option>
+                            <option value="pos">POS</option>
                         </select>
                         <ChevronDownIcon
                             aria-hidden="true"
@@ -204,10 +273,26 @@ export default function InputOrder({ setSelectedComponent }) {
 
                 {/* Buttons */}
                 <div className='flex flex-col sm:flex-row items-center gap-6'>
-                    <button type="" class="w-full sm:w-[30%] text-white bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-base font-semibold px-5 py-3.5 dark:bg-blue-primary dark:hover:bg-blue-0e90da">
+                    <button 
+                        type="button" 
+                        className={`w-full sm:w-[30%] text-white rounded-[10px] text-base font-semibold px-5 py-3.5 ${
+                            isPlaceOnHoldActive 
+                                ? 'bg-blue-primary hover:bg-blue-0e90da focus:ring-4 focus:ring-blue-300' 
+                                : 'bg-gray-400 cursor-not-allowed'
+                        }`}
+                        disabled={!isPlaceOnHoldActive}
+                    >
                         Place On Hold
                     </button>
-                    <button onClick={() => setShowModal(true)} className='w-full sm:w-[70%] text-white bg-blue-primary hover:bg-blue-0e90da focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-[10px] text-base font-semibold px-5 py-3.5 dark:bg-blue-primary dark:hover:bg-blue-0e90da'>
+                    <button 
+                        onClick={() => isSaveButtonActive && setShowModal(true)} 
+                        className={`w-full sm:w-[70%] text-white rounded-[10px] text-base font-semibold px-5 py-3.5 ${
+                            isSaveButtonActive 
+                                ? 'bg-blue-primary hover:bg-blue-0e90da focus:ring-4 focus:ring-blue-300' 
+                                : 'bg-gray-400 cursor-not-allowed'
+                        }`}
+                        disabled={!isSaveButtonActive}
+                    >
                         Save & Issue Receipt
                     </button>
                 </div>
