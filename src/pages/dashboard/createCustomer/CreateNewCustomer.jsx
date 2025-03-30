@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { IoMdThumbsUp, IoIosCloseCircleOutline } from "react-icons/io";
+import { createPortal } from "react-dom";
 
 export default function CreateNewCustomer({ setView }) {
     // Get user email from Redux store
@@ -53,14 +55,15 @@ export default function CreateNewCustomer({ setView }) {
             );
 
             if (response.data.status === "success") {
-                alert("Customer created successfully!");
+                // alert("Customer created successfully!");
+                setShowModal(true);
                 setFormData({
                     customer_name: "",
                     phone_number: "",
                     gender: "Male",
                     location: "",
                 }); // Reset form
-                setView("customer-list"); // Navigate back to customer list
+                // setView("create-customer"); // Navigate back to customer list
             } else {
                 alert(response.data.message || "Failed to create customer.");
             }
@@ -71,6 +74,9 @@ export default function CreateNewCustomer({ setView }) {
             setIsLoading(false); // Stop loading
         }
     };
+
+    // Modal
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <div id="create-new-customer">
@@ -156,6 +162,36 @@ export default function CreateNewCustomer({ setView }) {
                     {isLoading ? "Creating..." : "Create Customer"}
                 </button>
             </form>
+
+            {/* Success modal */}
+            {showModal &&
+                createPortal(
+                    <div className="fixed inset-0 w-screen h-screen bg-gray-700/70 flex justify-center items-center z-50">
+                        <div className="flex flex-col items-center bg-white p-3 rounded-xl shadow-lg sm:min-w-[400px]">
+                            <IoIosCloseCircleOutline onClick={() => setView("create-customer")} className="size-6 self-end cursor-pointer" />
+                            <div className="bg-blue-200 size-20 rounded-full flex items-center justify-center mb-8">
+                                <IoMdThumbsUp className="size-12 text-blue-0e90da" />
+                            </div>
+                            <h2 className="text-xl text-gray-757575 font-bold mb-8">Created Successfully</h2>
+                            <div className="flex gap-6 mb-6">
+                                <button 
+                                    onClick={() => setView("create-customer")}
+                                    className="text-gray-757575 hover:text-white bg-white border border-black-10-percent hover:border-blue-0e90da hover:bg-blue-0e90da rounded-[10px] text-base font-semibold px-5 py-2"
+                                >
+                                    View Customers
+                                </button>
+                                <button 
+                                    onClick={() => setView("create-customer")}
+                                    className="text-white bg-blue-primary hover:bg-blue-0e90da rounded-[10px] text-base font-semibold px-5 py-2"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
+                )
+            }
         </div>
     );
 }
