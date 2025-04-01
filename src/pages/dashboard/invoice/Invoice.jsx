@@ -41,8 +41,9 @@ export default function Invoice() {
                                     <label for="" class="text-white-f8fdff text-xs font-semibold">Status</label>
                                     <select id="" class="bg-white-f8fdff text-gray-757575 text-sm rounded-[5px] block w-full p-2 focus:outline-none focus:ring-4 focus:ring-blue-300">
                                         <option selected>Any</option>
-                                        <option value="">Option 2</option>
-                                        <option value="">Option 3</option>
+                                        <option value="">Credit</option>
+                                        <option value="">Paid</option>
+                                        <option value="">Part</option>
                                     </select>
                                 </form>
                             </div>
